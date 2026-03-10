@@ -8,6 +8,6 @@ test_that("simplex2d is reproducible", {
     load(old)
     mat_old <- mat
     load(new)
-    all((mat - mat_old) < 1e-4)
+    all(abs(mat - mat_old) < 1e-4)
   })
 })
