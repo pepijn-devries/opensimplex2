@@ -1,0 +1,20 @@
+Package: opensimplex2
+Title: Generate Multi-Dimensional Open Simplex Noise
+Version: 0.0.0.9000
+Authors@R:
+    c(
+      person("Pepijn", "de Vries", role = c("aut", "cre"),
+             email = "pepijn.devries@outlook.com",
+             comment = c(ORCID = "0000-0002-7961-6646")),
+      person("Marco", "Ciaramella", role = c("aut", "cph")),
+      person("KdotJPG", role = c("aut", "cph"))
+    )
+Description: Generate 2, 3 or 4-dimensional autocorrelated noise.
+    The noise function is comparible to classic Perlin noise,
+    but with less directional artifacts and lower computational overhead.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+LinkingTo: 
+    cpp11
