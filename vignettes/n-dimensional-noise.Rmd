@@ -1,0 +1,22 @@
+---
+title: "N-Dimensional Noise"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{N-Dimensional Noise}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+TODO
+
+```{r setup}
+library(opensimplex2)
+image(simplex2d(100, 100, 2, 0))
+```
