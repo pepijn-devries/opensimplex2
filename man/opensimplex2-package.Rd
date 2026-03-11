@@ -8,6 +8,13 @@
 \description{
 Generate 2, 3 or 4-dimensional autocorrelated noise. The noise function is comparible to classic Perlin noise, but with less directional artifacts and lower computational overhead.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://pepijn-devries.github.io/opensimplex2/}
+}
+
+}
 \author{
 \strong{Maintainer}: Pepijn de Vries \email{pepijn.devries@outlook.com} (\href{https://orcid.org/0000-0002-7961-6646}{ORCID})
 
