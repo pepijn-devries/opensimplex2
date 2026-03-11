@@ -1,21 +1,22 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#include <stdint.h>
 
 typedef struct {
-    int xsv, ysv;
+    int32_t xsv, ysv;
     double dx, dy;
 } LatticePoint2D;
 
 typedef struct _LatticePoint3D {
     double dxr, dyr, dzr;
-    int xrv, yrv, zrv;
+    int32_t xrv, yrv, zrv;
     struct _LatticePoint3D *nextOnFailure;
     struct _LatticePoint3D *nextOnSuccess;
 } LatticePoint3D;
 
 typedef struct {
-    int xsv, ysv, zsv, wsv;
+    int32_t xsv, ysv, zsv, wsv;
     double dx, dy, dz, dw;
     double xsi, ysi, zsi, wsi;
     double ssiDelta;
@@ -50,7 +51,7 @@ typedef struct {
 } OpenSimplexEnv;
 
 OpenSimplexEnv *initOpenSimplex();
-OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, long seed);
+OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, int64_t seed);
 double noise2(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y);
 double noise2_XBeforeY(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y);
 double noise3_Classic(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y, double z);

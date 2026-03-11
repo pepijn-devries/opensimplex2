@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdint.h>
 #include <math.h>
 #include <stdbool.h>
 #include <string.h>
@@ -19,25 +20,25 @@
 	 * Utility
 	 */
 
-int _fastFloor(double x){
+int32_t _fastFloor(double x){
   // Tiny epsilon to prevent boundary jumping
-	int xi = (int)(x + 1e-15);
+  int32_t xi = (int32_t)(x + 1e-15);
 	return x < xi ? xi - 1 : xi;
 }
 
-Grad2 *_newGrad2Arr(unsigned int size){
+Grad2 *_newGrad2Arr(uint32_t size){
     return (Grad2 *) malloc(sizeof(Grad2)*size);
 }
 
-Grad3 *_newGrad3Arr(unsigned int size){
+Grad3 *_newGrad3Arr(uint32_t size){
     return (Grad3 *) malloc(sizeof(Grad3)*size);
 }
 
-Grad4 *_newGrad4Arr(unsigned int size){
+Grad4 *_newGrad4Arr(uint32_t size){
     return (Grad4 *) malloc(sizeof(Grad4)*size);
 }
 
-short *_newShortArr(unsigned int size){
+short *_newShortArr(uint32_t size){
     return (short *) malloc(sizeof(short)*size);
 }
 
@@ -345,7 +346,7 @@ Grad4 *_newGrad4ConstArray(){
 	return gradients4D;
 }
 
-LatticePoint2D *_newLatticePoint2D(int xsv, int ysv){
+LatticePoint2D *_newLatticePoint2D(int32_t xsv, int32_t ysv){
 	LatticePoint2D *plp2D = (LatticePoint2D *) malloc(sizeof(LatticePoint2D));
 	plp2D->xsv = xsv;
 	plp2D->ysv = ysv;
@@ -355,7 +356,7 @@ LatticePoint2D *_newLatticePoint2D(int xsv, int ysv){
 	return plp2D;
 }
 
-LatticePoint3D *_newLatticePoint3D(int xrv, int yrv, int zrv, int lattice){
+LatticePoint3D *_newLatticePoint3D(int32_t xrv, int32_t yrv, int32_t zrv, int32_t lattice){
 	LatticePoint3D *plp3D = (LatticePoint3D *) malloc(sizeof(LatticePoint3D));
 	plp3D->dxr = -xrv + lattice * 0.5;
 	plp3D->dyr = -yrv + lattice * 0.5;
@@ -366,7 +367,7 @@ LatticePoint3D *_newLatticePoint3D(int xrv, int yrv, int zrv, int lattice){
 	return plp3D;
 }
 
-LatticePoint4D *_newLatticePoint4D(int xsv, int ysv, int zsv, int wsv){
+LatticePoint4D *_newLatticePoint4D(int32_t xsv, int32_t ysv, int32_t zsv, int32_t wsv){
 	LatticePoint4D *plp4D = (LatticePoint4D *) malloc(sizeof(LatticePoint4D));
 	plp4D->xsv = xsv + 409;
 	plp4D->ysv = ysv + 409;
@@ -465,11 +466,11 @@ double _noise2_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 	double value = 0;
 
 	// Get base points and offsets
-	int xsb = _fastFloor(xs), ysb = _fastFloor(ys);
+	int32_t xsb = _fastFloor(xs), ysb = _fastFloor(ys);
 	double xsi = xs - xsb, ysi = ys - ysb;
 
 	// Index to point list
-	int index = (int)((ysi - xsi) / 2 + 1);
+	int32_t index = (int32_t)((ysi - xsi) / 2 + 1);
 
 	double ssi = (xsi + ysi) * -0.211324865405187;
 	double xi = xsi + ssi, yi = ysi + ssi;
@@ -529,13 +530,13 @@ double noise2_XBeforeY(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x,
 double _noise3_BCC(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xr, double yr, double zr){
 
 	// Get base and offsets inside cube of first lattice.
-	int xrb = _fastFloor(xr), yrb = _fastFloor(yr), zrb = _fastFloor(zr);
+	int32_t xrb = _fastFloor(xr), yrb = _fastFloor(yr), zrb = _fastFloor(zr);
 	double xri = xr - xrb, yri = yr - yrb, zri = zr - zrb;
 
 	// Identify which octant of the cube we're in. This determines which cell
 	// in the other cubic lattice we're in, and also narrows down one point on each.
-	int xht = (int)(xri + 0.5), yht = (int)(yri + 0.5), zht = (int)(zri + 0.5);
-	int index = (xht << 0) | (yht << 1) | (zht << 2);
+	int32_t xht = (int32_t)(xri + 0.5), yht = (int32_t)(yri + 0.5), zht = (int32_t)(zri + 0.5);
+	int32_t index = (xht << 0) | (yht << 1) | (zht << 2);
 
 	// Point contributions
 	double value = 0;
@@ -547,7 +548,7 @@ double _noise3_BCC(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xr, do
 			c = c->nextOnFailure;
 		}
 		else{
-			int pxm = (xrb + c->xrv) & PMASK, pym = (yrb + c->yrv) & PMASK, pzm = (zrb + c->zrv) & PMASK;
+		  int32_t pxm = (xrb + c->xrv) & PMASK, pym = (yrb + c->yrv) & PMASK, pzm = (zrb + c->zrv) & PMASK;
 		  Grad3 grad = osg->permGrad3[osg->perm[osg->perm[pxm] ^ pym] ^ pzm];
 			double extrapolation = grad.dx * dxr + grad.dy * dyr + grad.dz * dzr;
 
@@ -630,7 +631,7 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 	double value = 0;
 
 	// Get base points and offsets
-	int xsb = _fastFloor(xs), ysb = _fastFloor(ys), zsb = _fastFloor(zs), wsb = _fastFloor(ws);
+	int32_t xsb = _fastFloor(xs), ysb = _fastFloor(ys), zsb = _fastFloor(zs), wsb = _fastFloor(ws);
 	double xsi = xs - xsb, ysi = ys - ysb, zsi = zs - zsb, wsi = ws - wsb;
 
 	// If we're in the lower half, flip so we can repeat the code for the upper half. We'll flip back later.
@@ -650,7 +651,7 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 	double aabbScore = fabs(aabb), ababScore = fabs(abab), abbaScore = fabs(abba);
 
 	// Find the closest point on the stretched tesseract as if it were the upper half
-	int vertexIndex, via, vib;
+	int32_t vertexIndex, via, vib;
 	double asi, bsi;
 	if (aabbScore > ababScore && aabbScore > abbaScore){
 		if (aabb > 0){
@@ -735,7 +736,7 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 		double dx = xi + c->dx, dy = yi + c->dy, dz = zi + c->dz, dw = wi + c->dw;
 		double attn = 0.5 - dx * dx - dy * dy - dz * dz - dw * dw;
 		if (attn > 0){
-			int pxm = xsb & PMASK, pym = ysb & PMASK, pzm = zsb & PMASK, pwm = wsb & PMASK;
+		  int32_t pxm = xsb & PMASK, pym = ysb & PMASK, pzm = zsb & PMASK, pwm = wsb & PMASK;
 			Grad4 grad = osg->permGrad4[osg->perm[osg->perm[osg->perm[pxm] ^ pym] ^ pzm] ^ pwm];
 			double ramped = grad.dx * dx + grad.dy * dy + grad.dz * dz + grad.dw * dw;
 
@@ -841,7 +842,7 @@ OpenSimplexEnv *initOpenSimplex(){
 	return ose;
 }
 
-OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, long seed){
+OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, int64_t seed){
     OpenSimplexGradients *osg = (OpenSimplexGradients *) malloc(sizeof(OpenSimplexGradients));
     osg->perm = _newShortArr(PSIZE);
     osg->permGrad2 = _newGrad2Arr(PSIZE);
@@ -853,7 +854,7 @@ OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, long seed){
     }
     for (int i = PSIZE - 1; i >= 0; i--){
         seed = seed * 6364136223846793005L + 1442695040888963407L;
-		int r = (int)((seed + 31) % (i + 1));
+      int32_t r = (int32_t)((seed + 31) % (i + 1));
 		if (r < 0){
             r += (i + 1);
         }

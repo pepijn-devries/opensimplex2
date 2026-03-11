@@ -32,7 +32,6 @@ sexp noise3d_(int width, int height, int depth, double frequency, long seed) {
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
       for (int k = 0; k < depth; k++) {
-        int idx = i + j*width + k*width*height; //todo
         d[i + j*width + k*width*height] = noise3_Classic(ose, osg,
                                                          frequency * (i - width/2)/PERIOD,
                                                          frequency * (j - height/2)/PERIOD,
