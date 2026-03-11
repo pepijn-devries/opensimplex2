@@ -12,11 +12,12 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+set.seed(0)
 ```
 
 TODO
 
 ```{r setup}
 library(opensimplex2)
-image(simplex2d(100, 100, 2, 0))
+image(simplex2d(100, 100, 2))
 ```
