@@ -438,6 +438,7 @@ LatticePoint3D **_newLatticePoint3DConstArray(){
 		c6->nextOnSuccess = NULL;
 		c7->nextOnFailure = c7->nextOnSuccess = NULL;
 
+		free(c1); free(c2); free(c3); free(c4); free(c5); free(c6); free(c7);
 		plp3DArr[i] = c0;
 	}
 	return plp3DArr;
@@ -861,5 +862,6 @@ OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, long seed){
 		osg->permGrad4[i] = ose->GRADIENTS_4D[osg->perm[i]];
 		source[r] = source[i];
     }
+  free(source);
 	return osg;
 }
