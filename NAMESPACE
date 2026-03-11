@@ -2,4 +2,5 @@
 
 export(simplex2d)
 export(simplex3d)
+export(simplex4d)
 useDynLib(opensimplex2, .registration = TRUE)

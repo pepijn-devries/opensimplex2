@@ -10,8 +10,6 @@ simplex2d(width, height, frequency = 1, seed = 0L)
 \item{width, height}{TODO}
 
 \item{frequency}{TODO}
-
-\item{seed}{TODO}
 }
 \value{
 TODO
