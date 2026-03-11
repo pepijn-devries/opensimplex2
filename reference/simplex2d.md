@@ -18,10 +18,6 @@ simplex2d(width, height, frequency = 1, seed = 0L)
 
   TODO
 
-- seed:
-
-  TODO
-
 ## Value
 
 TODO

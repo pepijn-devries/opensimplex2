@@ -5,7 +5,7 @@ TODO
 ## Usage
 
 ``` r
-simplex3d(width, height, depth, frequency = 1, seed = 0L)
+simplex3d(width, height, depth, frequency = 1)
 ```
 
 ## Arguments
@@ -15,10 +15,6 @@ simplex3d(width, height, depth, frequency = 1, seed = 0L)
   TODO
 
 - frequency:
-
-  TODO
-
-- seed:
 
   TODO
 
