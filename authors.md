@@ -11,6 +11,9 @@
 
 ## Citation
 
+Source:
+[`DESCRIPTION`](https://github.com/pepijn-devries/opensimplex2/blob/main/DESCRIPTION)
+
 de Vries P, Ciaramella M, KdotJPG (2026). *opensimplex2: Generate
 Multi-Dimensional Open Simplex Noise*. R package version 0.0.0.9000,
 <https://pepijn-devries.github.io/opensimplex2/>.

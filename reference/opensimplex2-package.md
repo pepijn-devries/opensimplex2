@@ -4,6 +4,16 @@ Generate 2, 3 or 4-dimensional autocorrelated noise. The noise function
 is comparible to classic Perlin noise, but with less directional
 artifacts and lower computational overhead.
 
+## See also
+
+Useful links:
+
+- <https://pepijn-devries.github.io/opensimplex2/>
+
+- <https://github.com/pepijn-devries/opensimplex2/>
+
+- Report bugs at <https://github.com/pepijn-devries/opensimplex2/issues>
+
 ## Author
 
 **Maintainer**: Pepijn de Vries <pepijn.devries@outlook.com>

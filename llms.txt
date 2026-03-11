@@ -39,6 +39,8 @@ By contributing to this project, you agree to abide by its terms.
 
 - [`simplex2d()`](https://pepijn-devries.github.io/opensimplex2/reference/simplex2d.md)
   : TODO
+- [`simplex3d()`](https://pepijn-devries.github.io/opensimplex2/reference/simplex3d.md)
+  : TODO
 
 # Articles
 

@@ -5,12 +5,12 @@ TODO
 ## Usage
 
 ``` r
-simplex2d(width, height, frequency = 1, seed = 0L)
+simplex3d(width, height, depth, frequency = 1, seed = 0L)
 ```
 
 ## Arguments
 
-- width, height:
+- width, height, depth:
 
   TODO
 
@@ -29,6 +29,6 @@ TODO
 ## Examples
 
 ``` r
-mat <- simplex2d(100, 100)
-image(mat)
+mat <- simplex3d(100, 100, 100)
+image(mat[,,1])
 ```
