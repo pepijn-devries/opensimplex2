@@ -4,7 +4,7 @@
 \alias{simplex2d}
 \title{TODO}
 \usage{
-simplex2d(width, height, frequency = 1, seed = 0L)
+simplex2d(width, height, frequency = 1)
 }
 \arguments{
 \item{width, height}{TODO}

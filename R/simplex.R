@@ -8,7 +8,7 @@
 #' mat <- simplex2d(100, 100)
 #' image(mat)
 #' @export
-simplex2d <- function(width, height, frequency = 1, seed = 0L) {
+simplex2d <- function(width, height, frequency = 1) {
   noise2d_(width, height, frequency)
 }
 
