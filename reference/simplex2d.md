@@ -5,7 +5,7 @@ TODO
 ## Usage
 
 ``` r
-simplex2d(width, height, frequency = 1, seed = 0L)
+simplex2d(width, height, frequency = 1)
 ```
 
 ## Arguments
