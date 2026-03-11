@@ -12,10 +12,18 @@ extern "C" SEXP _opensimplex2_noise2d_(SEXP width, SEXP height, SEXP frequency, 
     return cpp11::as_sexp(noise2d_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<double>>(frequency), cpp11::as_cpp<cpp11::decay_t<long>>(seed)));
   END_CPP11
 }
+// code.cpp
+sexp noise3d_(int width, int height, int depth, double frequency, long seed);
+extern "C" SEXP _opensimplex2_noise3d_(SEXP width, SEXP height, SEXP depth, SEXP frequency, SEXP seed) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(noise3d_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<int>>(depth), cpp11::as_cpp<cpp11::decay_t<double>>(frequency), cpp11::as_cpp<cpp11::decay_t<long>>(seed)));
+  END_CPP11
+}
 
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
     {"_opensimplex2_noise2d_", (DL_FUNC) &_opensimplex2_noise2d_, 4},
+    {"_opensimplex2_noise3d_", (DL_FUNC) &_opensimplex2_noise3d_, 5},
     {NULL, NULL, 0}
 };
 }

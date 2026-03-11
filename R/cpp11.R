@@ -3,3 +3,7 @@
 noise2d_ <- function(width, height, frequency, seed) {
   .Call(`_opensimplex2_noise2d_`, width, height, frequency, seed)
 }
+
+noise3d_ <- function(width, height, depth, frequency, seed) {
+  .Call(`_opensimplex2_noise3d_`, width, height, depth, frequency, seed)
+}

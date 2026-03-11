@@ -12,6 +12,8 @@ Generate 2, 3 or 4-dimensional autocorrelated noise. The noise function is compa
 Useful links:
 \itemize{
   \item \url{https://pepijn-devries.github.io/opensimplex2/}
+  \item \url{https://github.com/pepijn-devries/opensimplex2/}
+  \item Report bugs at \url{https://github.com/pepijn-devries/opensimplex2/issues}
 }
 
 }

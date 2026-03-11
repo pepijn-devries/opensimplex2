@@ -24,4 +24,6 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-URL: https://pepijn-devries.github.io/opensimplex2/
+URL: https://pepijn-devries.github.io/opensimplex2/, https://github.com/pepijn-devries/opensimplex2/
+BugReports: https://github.com/pepijn-devries/opensimplex2/issues
+Language: en-GB

@@ -8,9 +8,22 @@ void freeLatticePoint2DArray(LatticePoint2D ** lp2d) {
   free(lp2d);
 }
 
+void freeLatticePoint(LatticePoint3D * lp3d) {
+  // Free the entire path:
+  //c0->c1->c2->c3->c4->c5->c6->c7
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure);
+  free(lp3d);
+}
+
 void freeLatticePoint3DArray(LatticePoint3D ** lp3d) {
   for (int i = 0; i < 8; i++) {
-    free(lp3d[i]);
+    freeLatticePoint(lp3d[i]);
   }
   free(lp3d);
 }
