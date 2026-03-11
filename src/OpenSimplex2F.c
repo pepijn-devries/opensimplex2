@@ -100,6 +100,7 @@ Grad2 *_newGrad2ConstArray(){
 	for (int i = 0; i < PSIZE; i++) {
         gradients2D[i] = arr[i % 24];
     }
+	  free(arr);
     return gradients2D;
 }
 
@@ -163,6 +164,7 @@ Grad3 *_newGrad3ConstArray(){
 	for (int i = 0; i < PSIZE; i++){
 		gradients3D[i] = arr[i % 48];
 	}
+	free(arr);
 	return gradients3D;
 }
 
@@ -339,6 +341,7 @@ Grad4 *_newGrad4ConstArray(){
 	for (int i = 0; i < PSIZE; i++){
 		gradients4D[i] = arr[i % 160];
 	}
+	free(arr);
 	return gradients4D;
 }
 
