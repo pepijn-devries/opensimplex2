@@ -16,8 +16,31 @@ TODO
 
 ``` r
 library(opensimplex2)
-## TODO
+library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.5.2
+library(gganimate)
+#> Warning: package 'gganimate' was built under R version 4.5.2
+## Create simplex noise in 3 dimensions:
+arr <- simplex_noise(100, 100, 100, frequency = 1.5)
+## Convert array to data.frame with dimensions as columns:
+arr.df <- as.data.frame(which(arr == arr, arr.ind = TRUE))
+arr.df$value <- arr[as.matrix(arr.df)]
+
+## Plot the noise with first two dimensions on x- and y-axis.
+## The third dimension is used as transition in an animation
+ggplot(arr.df, aes(x = dim1, y = dim2, fill = value)) +
+  geom_tile() +
+  theme_void() + 
+  theme(plot.margin = margin(0, 0, 0, 0, "pt"),
+        legend.position = "none") +
+  coord_fixed() +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_binned(limit = c(-1, 1), palette = "viridis", n.breaks = 10) +
+  transition_states(dim3)
 ```
+
+![](reference/figures/README-example-1.gif)
 
 ## Acknowledgments
 
