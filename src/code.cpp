@@ -70,7 +70,7 @@ sexp noise4d_(int width, int height, int depth, int slice, double frequency) {
                            frequency * (i - width/2)/PERIOD,
                            frequency * (j - height/2)/PERIOD,
                            frequency * (k - depth/2)/PERIOD,
-                           frequency * (l - depth/2)/PERIOD);
+                           frequency * (l - slice/2)/PERIOD);
         }
       }
     }
