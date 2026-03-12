@@ -11,3 +11,7 @@ noise3d_ <- function(width, height, depth, frequency) {
 noise4d_ <- function(width, height, depth, slice, frequency) {
   .Call(`_opensimplex2_noise4d_`, width, height, depth, slice, frequency)
 }
+
+noise2dS_ <- function(width, height, frequency) {
+  .Call(`_opensimplex2_noise2dS_`, width, height, frequency)
+}

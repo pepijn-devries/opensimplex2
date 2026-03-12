@@ -19,7 +19,11 @@ RoxygenNote: 7.3.2
 LinkingTo: 
     cpp11
 Suggests: 
+    gganimate,
+    ggplot2,
+    gifski,
     knitr,
+    ragg,
     rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

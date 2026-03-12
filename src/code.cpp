@@ -79,3 +79,24 @@ sexp noise4d_(int width, int height, int depth, int slice, double frequency) {
   freeOpenSimplex(ose);
   return d;
 }
+
+[[cpp11::register]]
+doubles_matrix<> noise2dS_(int width, int height, double frequency) {
+  GetRNGstate();
+  uint32_t seed = (uint32_t)(unif_rand() * 4294967296.0);
+  PutRNGstate();
+  writable::doubles_matrix<> mat(width, height);
+  OpenSimplexEnv *ose = initOpenSimplexS();
+  OpenSimplexGradients *osg = newOpenSimplexSGradients(ose, seed);
+  for (int i = 0; i < width; i++) {
+    for (int j = 0; j < height; j++) {
+      mat(i, j) = noiseS2(
+        ose, osg,
+        frequency * (i - width/2)/PERIOD,
+        frequency * (j - height/2)/PERIOD);
+    }
+  }
+  freeOpenSimplexGradients(osg);
+  freeOpenSimplexS(ose);
+  return mat;
+}

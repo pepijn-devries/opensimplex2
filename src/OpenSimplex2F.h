@@ -4,6 +4,11 @@ extern "C" {
 #include <stdint.h>
 
 typedef struct {
+  unsigned int length;
+  void *data;
+} vect;
+  
+typedef struct {
     int32_t xsv, ysv;
     double dx, dy;
 } LatticePoint2D;
@@ -48,8 +53,17 @@ typedef struct {
     LatticePoint2D **LOOKUP_2D;
     LatticePoint3D **LOOKUP_3D;
     LatticePoint4D **VERTICES_4D;
+    vect *LOOKUP_4D;
 } OpenSimplexEnv;
 
+int32_t _fastFloor(double x);
+Grad2 *_newGrad2Arr(uint32_t size);
+Grad3 *_newGrad3Arr(uint32_t size);
+Grad4 *_newGrad4Arr(uint32_t size);
+short *_newShortArr(uint32_t size);
+Grad2 _newGrad2(double dx, double dy);
+Grad3 _newGrad3(double dx, double dy, double dz);
+Grad4 _newGrad4(double dx, double dy, double dz, double dw);
 OpenSimplexEnv *initOpenSimplex();
 OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, int64_t seed);
 double noise2(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y);

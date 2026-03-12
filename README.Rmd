@@ -11,6 +11,9 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(ragg)
+library(gifski)
+set.seed(0)
 ```
 
 # opensimplex2
@@ -33,14 +36,33 @@ TODO
 
 TODO
 
-```{r example}
+```{r example, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", gganimate=list(nframes=100, device='ragg_png', end_pause=5)}
 library(opensimplex2)
-## TODO
+library(ggplot2)
+library(gganimate)
+## Create simplex noise in 3 dimensions:
+arr <- opensimplex_noise(100, 100, 100, frequency = 1.5)
+## Convert array to data.frame with dimensions as columns:
+arr.df <- as.data.frame(which(arr == arr, arr.ind = TRUE))
+arr.df$value <- arr[as.matrix(arr.df)]
+
+## Plot the noise with first two dimensions on x- and y-axis.
+## The third dimension is used as transition in an animation
+ggplot(arr.df, aes(x = dim1, y = dim2, fill = value)) +
+  geom_tile() +
+  theme_void() + 
+  theme(plot.margin = margin(0, 0, 0, 0, "pt"),
+        legend.position = "none") +
+  coord_fixed() +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_fill_binned(limit = c(-1, 1), palette = "viridis", n.breaks = 10) +
+  transition_states(dim3)
 ```
 
 ## Acknowledgments
 
-This package wraps the C-code by [https://github.com/MarcoCiaramella/OpenSimplex2](Marco Ciaramella),
+This package wraps the C-code by [https://github.com/MarcoCiaramella/opensimplex2](Marco Ciaramella),
 which in turn is a translation of the original Java code by
 [https://github.com/KdotJPG/OpenSimplex2](KdotJPG).
 
