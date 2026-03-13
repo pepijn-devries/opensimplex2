@@ -21,7 +21,7 @@ library(ggplot2)
 library(gganimate)
 #> Warning: package 'gganimate' was built under R version 4.5.2
 ## Create simplex noise in 3 dimensions:
-arr <- simplex_noise(100, 100, 100, frequency = 1.5)
+arr <- opensimplex_noise("S", 100, 100, 100, frequency = 1.5)
 ## Convert array to data.frame with dimensions as columns:
 arr.df <- as.data.frame(which(arr == arr, arr.ind = TRUE))
 arr.df$value <- arr[as.matrix(arr.df)]
@@ -38,6 +38,59 @@ ggplot(arr.df, aes(x = dim1, y = dim2, fill = value)) +
   scale_y_continuous(expand = c(0, 0)) +
   scale_fill_binned(limit = c(-1, 1), palette = "viridis", n.breaks = 10) +
   transition_states(dim3)
+#> Rendering [>--------------------------------------------] at 11 fps ~ eta:
+#> 8sRendering [=>------------------------------------------] at 9.7 fps ~ eta:
+#> 9sRendering [=>-------------------------------------------] at 10 fps ~ eta:
+#> 9sRendering [==>------------------------------------------] at 11 fps ~ eta:
+#> 8sRendering [===>-----------------------------------------] at 12 fps ~ eta:
+#> 7sRendering [====>----------------------------------------] at 12 fps ~ eta:
+#> 7sRendering [=====>---------------------------------------] at 12 fps ~ eta:
+#> 7sRendering [=====>---------------------------------------] at 13 fps ~ eta:
+#> 6sRendering [======>--------------------------------------] at 13 fps ~ eta:
+#> 6sRendering [=======>-------------------------------------] at 13 fps ~ eta:
+#> 6sRendering [========>------------------------------------] at 13 fps ~ eta:
+#> 6sRendering [=========>-----------------------------------] at 13 fps ~ eta:
+#> 6sRendering [==========>----------------------------------] at 13 fps ~ eta:
+#> 5sRendering [===========>---------------------------------] at 13 fps ~ eta:
+#> 5sRendering [============>--------------------------------] at 13 fps ~ eta:
+#> 5sRendering [=============>-------------------------------] at 13 fps ~ eta:
+#> 5sRendering [==============>------------------------------] at 13 fps ~ eta:
+#> 5sRendering [===============>-----------------------------] at 13 fps ~ eta:
+#> 5sRendering [================>----------------------------] at 13 fps ~ eta:
+#> 5sRendering [================>----------------------------] at 13 fps ~ eta:
+#> 4sRendering [=================>---------------------------] at 13 fps ~ eta:
+#> 4sRendering [==================>--------------------------] at 13 fps ~ eta:
+#> 4sRendering [===================>-------------------------] at 13 fps ~ eta:
+#> 4sRendering [====================>------------------------] at 13 fps ~ eta:
+#> 4sRendering [=====================>-----------------------] at 13 fps ~ eta:
+#> 4sRendering [======================>----------------------] at 13 fps ~ eta:
+#> 4sRendering [======================>----------------------] at 13 fps ~ eta:
+#> 3sRendering [=======================>---------------------] at 13 fps ~ eta:
+#> 3sRendering [========================>--------------------] at 14 fps ~ eta:
+#> 3sRendering [========================>--------------------] at 13 fps ~ eta:
+#> 3sRendering [=========================>-------------------] at 13 fps ~ eta:
+#> 3sRendering [==========================>------------------] at 13 fps ~ eta:
+#> 3sRendering [===========================>-----------------] at 13 fps ~ eta:
+#> 3sRendering [============================>----------------] at 13 fps ~ eta:
+#> 3sRendering [============================>----------------] at 13 fps ~ eta:
+#> 2sRendering [=============================>---------------] at 13 fps ~ eta:
+#> 2sRendering [==============================>--------------] at 13 fps ~ eta:
+#> 2sRendering [===============================>-------------] at 13 fps ~ eta:
+#> 2sRendering [================================>------------] at 13 fps ~ eta:
+#> 2sRendering [=================================>-----------] at 13 fps ~ eta:
+#> 2sRendering [==================================>----------] at 13 fps ~ eta:
+#> 2sRendering [===================================>---------] at 13 fps ~ eta:
+#> 1sRendering [====================================>--------] at 13 fps ~ eta:
+#> 1sRendering [=====================================>-------] at 13 fps ~ eta:
+#> 1sRendering [======================================>------] at 13 fps ~ eta:
+#> 1sRendering [=======================================>-----] at 13 fps ~ eta:
+#> 1sRendering [========================================>----] at 13 fps ~ eta:
+#> 1sRendering [=========================================>---] at 13 fps ~ eta:
+#> 1sRendering [=========================================>---] at 14 fps ~ eta:
+#> 0sRendering [==========================================>--] at 14 fps ~ eta:
+#> 0sRendering [===========================================>-] at 13 fps ~ eta:
+#> 0sRendering [============================================>] at 13 fps ~ eta:
+#> 0sRendering [=============================================] at 13 fps ~ eta: 0s
 ```
 
 ![](reference/figures/README-example-1.gif)
@@ -45,7 +98,7 @@ ggplot(arr.df, aes(x = dim1, y = dim2, fill = value)) +
 ## Acknowledgments
 
 This package wraps the C-code by
-[https://github.com/MarcoCiaramella/OpenSimplex2](https://pepijn-devries.github.io/opensimplex2/Marco%20Ciaramella),
+[https://github.com/MarcoCiaramella/opensimplex2](https://pepijn-devries.github.io/opensimplex2/Marco%20Ciaramella),
 which in turn is a translation of the original Java code by
 [https://github.com/KdotJPG/OpenSimplex2](https://pepijn-devries.github.io/opensimplex2/KdotJPG).
 
