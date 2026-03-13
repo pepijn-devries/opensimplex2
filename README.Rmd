@@ -37,7 +37,7 @@ TODO
 
 TODO
 
-```{r example, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", gganimate=list(nframes=100, device='ragg_png', end_pause=5)}
+```{r example, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", gganimate=list(nframes=100, device='ragg_png', end_pause=5), message=FALSE}
 library(opensimplex2)
 library(ggplot2)
 library(gganimate)
