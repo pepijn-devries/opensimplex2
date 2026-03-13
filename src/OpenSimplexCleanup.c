@@ -15,6 +15,9 @@ void freeLatticePointS(LatticePoint3D * lp3d) {
   free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
   free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
   free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
+  free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
   free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
   free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
   free(lp3d->nextOnFailure->nextOnFailure->nextOnFailure->nextOnFailure);
@@ -89,7 +92,7 @@ void freeOpenSimplexS(OpenSimplexEnv *ose) {
   free(ose->GRADIENTS_2D);
   free(ose->GRADIENTS_3D);
   free(ose->GRADIENTS_4D);
-  freeLatticePoint2DArray(ose->LOOKUP_2D, 16);
+  freeLatticePoint2DArray(ose->LOOKUP_2D, 32);
   freeLatticePointS3DArray(ose->LOOKUP_3D);
   freeLatticePointS4DArray(ose->LOOKUP_4D);
   freeLatticePoint4DArray(ose->VERTICES_4D, 256);
