@@ -2,7 +2,7 @@
 #include "OpenSimplexCleanup.h"
 
 void freeLatticePoint2DArray(LatticePoint2D ** lp2d, int size) {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < size; i++) {
     free(lp2d[i]);
   }
   free(lp2d);
