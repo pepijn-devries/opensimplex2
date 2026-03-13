@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "OpenSimplexCleanup.h"
 
-void freeLatticePoint2DArray(LatticePoint2D ** lp2d) {
+void freeLatticePoint2DArray(LatticePoint2D ** lp2d, int size) {
   for (int i = 0; i < 4; i++) {
     free(lp2d[i]);
   }
@@ -55,7 +55,7 @@ void freeOpenSimplex(OpenSimplexEnv *ose) {
   free(ose->GRADIENTS_2D);
   free(ose->GRADIENTS_3D);
   free(ose->GRADIENTS_4D);
-  freeLatticePoint2DArray(ose->LOOKUP_2D);
+  freeLatticePoint2DArray(ose->LOOKUP_2D, 4);
   freeLatticePoint3DArray(ose->LOOKUP_3D);
   freeLatticePoint4DArray(ose->VERTICES_4D, 16);
   free(ose);
@@ -89,7 +89,7 @@ void freeOpenSimplexS(OpenSimplexEnv *ose) {
   free(ose->GRADIENTS_2D);
   free(ose->GRADIENTS_3D);
   free(ose->GRADIENTS_4D);
-  freeLatticePoint2DArray(ose->LOOKUP_2D);
+  freeLatticePoint2DArray(ose->LOOKUP_2D, 16);
   freeLatticePointS3DArray(ose->LOOKUP_3D);
   freeLatticePointS4DArray(ose->LOOKUP_4D);
   freeLatticePoint4DArray(ose->VERTICES_4D, 256);
