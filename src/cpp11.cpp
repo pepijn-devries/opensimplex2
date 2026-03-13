@@ -5,32 +5,46 @@
 #include "cpp11/declarations.hpp"
 #include <R_ext/Visibility.h>
 
-// code.cpp
+// simplex2r.cpp
 doubles_matrix<> noise2d_(int width, int height, double frequency);
 extern "C" SEXP _opensimplex2_noise2d_(SEXP width, SEXP height, SEXP frequency) {
   BEGIN_CPP11
     return cpp11::as_sexp(noise2d_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<double>>(frequency)));
   END_CPP11
 }
-// code.cpp
+// simplex2r.cpp
 sexp noise3d_(int width, int height, int depth, double frequency);
 extern "C" SEXP _opensimplex2_noise3d_(SEXP width, SEXP height, SEXP depth, SEXP frequency) {
   BEGIN_CPP11
     return cpp11::as_sexp(noise3d_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<int>>(depth), cpp11::as_cpp<cpp11::decay_t<double>>(frequency)));
   END_CPP11
 }
-// code.cpp
+// simplex2r.cpp
 sexp noise4d_(int width, int height, int depth, int slice, double frequency);
 extern "C" SEXP _opensimplex2_noise4d_(SEXP width, SEXP height, SEXP depth, SEXP slice, SEXP frequency) {
   BEGIN_CPP11
     return cpp11::as_sexp(noise4d_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<int>>(depth), cpp11::as_cpp<cpp11::decay_t<int>>(slice), cpp11::as_cpp<cpp11::decay_t<double>>(frequency)));
   END_CPP11
 }
-// code.cpp
+// simplex2r.cpp
 doubles_matrix<> noise2dS_(int width, int height, double frequency);
 extern "C" SEXP _opensimplex2_noise2dS_(SEXP width, SEXP height, SEXP frequency) {
   BEGIN_CPP11
     return cpp11::as_sexp(noise2dS_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<double>>(frequency)));
+  END_CPP11
+}
+// simplex2r.cpp
+sexp noise3dS_(int width, int height, int depth, double frequency);
+extern "C" SEXP _opensimplex2_noise3dS_(SEXP width, SEXP height, SEXP depth, SEXP frequency) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(noise3dS_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<int>>(depth), cpp11::as_cpp<cpp11::decay_t<double>>(frequency)));
+  END_CPP11
+}
+// simplex2r.cpp
+sexp noise4dS_(int width, int height, int depth, int slice, double frequency);
+extern "C" SEXP _opensimplex2_noise4dS_(SEXP width, SEXP height, SEXP depth, SEXP slice, SEXP frequency) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(noise4dS_(cpp11::as_cpp<cpp11::decay_t<int>>(width), cpp11::as_cpp<cpp11::decay_t<int>>(height), cpp11::as_cpp<cpp11::decay_t<int>>(depth), cpp11::as_cpp<cpp11::decay_t<int>>(slice), cpp11::as_cpp<cpp11::decay_t<double>>(frequency)));
   END_CPP11
 }
 
@@ -38,7 +52,9 @@ extern "C" {
 static const R_CallMethodDef CallEntries[] = {
     {"_opensimplex2_noise2dS_", (DL_FUNC) &_opensimplex2_noise2dS_, 3},
     {"_opensimplex2_noise2d_",  (DL_FUNC) &_opensimplex2_noise2d_,  3},
+    {"_opensimplex2_noise3dS_", (DL_FUNC) &_opensimplex2_noise3dS_, 4},
     {"_opensimplex2_noise3d_",  (DL_FUNC) &_opensimplex2_noise3d_,  4},
+    {"_opensimplex2_noise4dS_", (DL_FUNC) &_opensimplex2_noise4dS_, 5},
     {"_opensimplex2_noise4d_",  (DL_FUNC) &_opensimplex2_noise4d_,  5},
     {NULL, NULL, 0}
 };

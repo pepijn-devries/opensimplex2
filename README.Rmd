@@ -20,6 +20,7 @@ set.seed(0)
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/pepijn-devries/opensimplex2/graph/badge.svg)](https://app.codecov.io/gh/pepijn-devries/opensimplex2)
 <!-- badges: end -->
 
 TODO
@@ -41,7 +42,7 @@ library(opensimplex2)
 library(ggplot2)
 library(gganimate)
 ## Create simplex noise in 3 dimensions:
-arr <- opensimplex_noise(100, 100, 100, frequency = 1.5)
+arr <- opensimplex_noise("S", 100, 100, 100, frequency = 1.5)
 ## Convert array to data.frame with dimensions as columns:
 arr.df <- as.data.frame(which(arr == arr, arr.ind = TRUE))
 arr.df$value <- arr[as.matrix(arr.df)]

@@ -23,9 +23,17 @@ opensimplex_noise <- function(type = "F", width, height, depth, slice, frequency
     }
   } else {
     if (missing(slice)) {
-      noise3d_(width, height, depth, frequency)
+      if (type == "F") {
+        noise3d_(width, height, depth, frequency)
+      } else {
+        noise3dS_(width, height, depth, frequency)
+      }
     } else {
-      noise4d_(width, height, depth, slice, frequency)
+      if (type == "F") {
+        noise4d_(width, height, depth, slice, frequency)
+      } else {
+        noise4dS_(width, height, depth, slice, frequency)
+      }
     }
   }
 }
