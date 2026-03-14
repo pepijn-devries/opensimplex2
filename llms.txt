@@ -16,38 +16,26 @@ TODO
 
 ``` r
 library(opensimplex2)
-library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.5.2
-library(gganimate)
-#> Warning: package 'gganimate' was built under R version 4.5.2
+## Set seed to obtain reproducible data
+set.seed(0)
 ## Create simplex noise in 3 dimensions:
 arr <- opensimplex_noise("S", 100, 100, 100, frequency = 1.5)
-## Convert array to data.frame with dimensions as columns:
-arr.df <- as.data.frame(which(arr == arr, arr.ind = TRUE))
-arr.df$value <- arr[as.matrix(arr.df)]
 
-## Plot the noise with first two dimensions on x- and y-axis.
-## The third dimension is used as transition in an animation
-ggplot(arr.df, aes(x = dim1, y = dim2, fill = value)) +
-  geom_tile() +
-  theme_void() + 
-  theme(plot.margin = margin(0, 0, 0, 0, "pt"),
-        legend.position = "none") +
-  coord_fixed() +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  scale_fill_binned(limit = c(-1, 1), palette = "viridis", n.breaks = 10) +
-  transition_states(dim3)
+for (i in 1:100) {
+  image(arr[,,i],
+        axes = FALSE, ann = FALSE, xaxs = "i", yaxs = "i",
+        zlim = c(-1, +1), col = hcl.colors(palette = "Terrain", 10))
+}
 ```
 
-![](reference/figures/README-example-1.gif)
+![](reference/figures/README-example-.gif)
 
 ## Acknowledgments
 
-This package wraps the C-code by
-[https://github.com/MarcoCiaramella/opensimplex2](https://pepijn-devries.github.io/opensimplex2/Marco%20Ciaramella),
-which in turn is a translation of the original Java code by
-[https://github.com/KdotJPG/OpenSimplex2](https://pepijn-devries.github.io/opensimplex2/KdotJPG).
+This package wraps the C-code by [Marco
+Ciaramella](https://github.com/MarcoCiaramella/opensimplex2), which in
+turn is a translation of the original Java code by
+[KdotJPG](https://github.com/KdotJPG/OpenSimplex2).
 
 ## Code of Conduct
 
@@ -61,6 +49,8 @@ By contributing to this project, you agree to abide by its terms.
 ## All functions
 
 - [`opensimplex_noise()`](https://pepijn-devries.github.io/opensimplex2/reference/opensimplex_noise.md)
+  : TODO
+- [`opensimplex_space()`](https://pepijn-devries.github.io/opensimplex2/reference/opensimplex_space.md)
   : TODO
 
 # Articles

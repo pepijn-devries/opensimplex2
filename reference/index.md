@@ -4,3 +4,5 @@
 
 - [`opensimplex_noise()`](https://pepijn-devries.github.io/opensimplex2/reference/opensimplex_noise.md)
   : TODO
+- [`opensimplex_space()`](https://pepijn-devries.github.io/opensimplex2/reference/opensimplex_space.md)
+  : TODO

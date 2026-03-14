@@ -5,7 +5,7 @@ TODO
 ## Usage
 
 ``` r
-opensimplex_noise(type = "F", width, height, depth, slice, frequency = 1)
+opensimplex_noise(type = "S", width, height, depth, slice, frequency = 1)
 ```
 
 ## Arguments
