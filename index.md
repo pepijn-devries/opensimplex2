@@ -21,6 +21,7 @@ set.seed(0)
 ## Create simplex noise in 3 dimensions:
 arr <- opensimplex_noise("S", 100, 100, 100, frequency = 1.5)
 
+## Plot 2D noise while looping the third dimension:
 for (i in 1:100) {
   image(arr[,,i],
         axes = FALSE, ann = FALSE, xaxs = "i", yaxs = "i",

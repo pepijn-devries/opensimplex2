@@ -75,6 +75,7 @@
 <span><span class="co">## Create simplex noise in 3 dimensions:</span></span>
 <span><span class="va">arr</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/opensimplex_noise.html">opensimplex_noise</a></span><span class="op">(</span><span class="st">"S"</span>, <span class="fl">100</span>, <span class="fl">100</span>, <span class="fl">100</span>, frequency <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co">## Plot 2D noise while looping the third dimension:</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">arr</span><span class="op">[</span>,,<span class="va">i</span><span class="op">]</span>,</span>
 <span>        axes <span class="op">=</span> <span class="cn">FALSE</span>, ann <span class="op">=</span> <span class="cn">FALSE</span>, xaxs <span class="op">=</span> <span class="st">"i"</span>, yaxs <span class="op">=</span> <span class="st">"i"</span>,</span>
