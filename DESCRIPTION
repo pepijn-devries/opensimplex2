@@ -18,6 +18,8 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 LinkingTo: 
     cpp11
+Depends:
+    R (>= 3.5.0)
 Suggests: 
     gifski,
     knitr,
