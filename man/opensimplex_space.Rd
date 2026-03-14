@@ -6,6 +6,18 @@
 \usage{
 opensimplex_space(type = "S", dimensions = 2L)
 }
+\arguments{
+\item{type}{TODO}
+
+\item{dimensions}{TODO}
+}
+\value{
+TODO
+}
 \description{
 TODO
+}
+\examples{
+# TODO
+
 }

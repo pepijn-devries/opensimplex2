@@ -41,6 +41,12 @@ opensimplex_noise <- function(type = "S", width, height, depth, slice, frequency
 #' TODO
 #' 
 #' TODO
+#' @param type TODO
+#' @param dimensions TODO
+#' @returns TODO
+#' @examples
+#' # TODO
+#' 
 #' @export
 opensimplex_space <- function(type = "S", dimensions = 2L) {
   dimensions <- as.integer(dimensions)
