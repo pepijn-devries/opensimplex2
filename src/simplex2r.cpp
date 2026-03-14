@@ -133,10 +133,11 @@ sexp noise3dS_(int width, int height, int depth, double frequency) {
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
       for (int k = 0; k < depth; k++) {
-        d[i + j*width + k*width*height] = noiseS3_Classic(ss.getOSE(), ss.getOSG(),
-                                                          frequency * (i - width/2)/width,
-                                                          frequency * (j - height/2)/height,
-                                                          frequency * (k - depth/2)/depth);
+        d[i + j*width + k*width*height] = noiseS3_Classic(
+          ss.getOSE(), ss.getOSG(),
+          frequency * (i - width/2)/width,
+          frequency * (j - height/2)/height,
+          frequency * (k - depth/2)/depth);
       }
     }
   }
@@ -195,16 +196,31 @@ sexp simplex_sample_space_2d(external_pointer<SimplexSpace> ss,
 sexp simplex_sample_space_3d(external_pointer<SimplexSpace> ss,
                              doubles i, doubles j, doubles k) {
   check_ss_pointer(ss);
-  Rprintf("TODO %e\n", ss->getOSE()->GRADIENTS_2D->dx);
-  return R_NilValue;
+  if (i.size() != j.size() || i.size() != k.size())
+    cpp11::stop("All dimension args should have same length");
+  writable::doubles result(i.size());
+  std::function<double(OpenSimplexEnv *,OpenSimplexGradients *,double,double,double)> f;
+  if (ss->get_type() == 'F') f = noise3_Classic; else f = noiseS3_Classic;
+  for (R_xlen_t idx = 0; idx < i.size(); idx++) {
+    result[idx] = f(ss->getOSE(), ss->getOSG(), i[idx], j[idx], k[idx]);
+  }
+  return result;
 }
 
 [[cpp11::register]]
 sexp simplex_sample_space_4d(external_pointer<SimplexSpace> ss,
                              doubles i, doubles j, doubles k, doubles l) {
   check_ss_pointer(ss);
-  Rprintf("TODO %e\n", ss->getOSE()->GRADIENTS_2D->dx);
-  return R_NilValue;
+  if (i.size() != j.size() || i.size() != k.size() ||
+      i.size() != l.size())
+    cpp11::stop("All dimension args should have same length");
+  writable::doubles result(i.size());
+  std::function<double(OpenSimplexEnv *,OpenSimplexGradients *,double,double,double,double)> f;
+  if (ss->get_type() == 'F') f = noise4_Classic; else f = noiseS4_Classic;
+  for (R_xlen_t idx = 0; idx < i.size(); idx++) {
+    result[idx] = f(ss->getOSE(), ss->getOSG(), i[idx], j[idx], k[idx], l[idx]);
+  }
+  return result;
 }
 
 [[cpp11::register]]
