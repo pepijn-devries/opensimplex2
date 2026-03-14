@@ -9,7 +9,7 @@
 #' mat <- opensimplex_noise("F", 100, 100)
 #' image(mat)
 #' @export
-opensimplex_noise <- function(type = "F", width, height, depth, slice, frequency = 1) {
+opensimplex_noise <- function(type = "S", width, height, depth, slice, frequency = 1) {
   type <- match.arg(type, c("F", "S"))
   if (missing(depth)) {
     if (missing(slice)) {
@@ -36,4 +36,35 @@ opensimplex_noise <- function(type = "F", width, height, depth, slice, frequency
       }
     }
   }
+}
+
+#' TODO
+#' 
+#' TODO
+#' @export
+opensimplex_space <- function(type = "S", dimensions = 2L) {
+  dimensions <- as.integer(dimensions)
+  oss <- simplex_space_(type, dimensions)
+  list(
+    sample = switch(
+      LETTERS[dimensions],
+      B = {
+        function(i, j) {
+          simplex_sample_space_2d(oss, as.double(i), as.double(j))
+        }
+      },
+      C = {
+        function(i, j, k) {
+          simplex_sample_space_3d(oss, as.double(i), as.double(j), as.double(k))
+        }
+      },
+      D = {
+        function(i, j, k, l) {
+          simplex_sample_space_4d(oss, as.double(i), as.double(j), as.double(k), as.double(l))
+        }
+      },
+      stop("Dimensions out of range")),
+    close = function() {
+      invisible(simplex_sample_close(oss))
+    })
 }

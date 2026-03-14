@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <string.h>
+#include "opensimplex2_ctypes.h"
 #include "OpenSimplex2F.h"
 
 #define PSIZE 2048

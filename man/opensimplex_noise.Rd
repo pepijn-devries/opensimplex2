@@ -4,7 +4,7 @@
 \alias{opensimplex_noise}
 \title{TODO}
 \usage{
-opensimplex_noise(type = "F", width, height, depth, slice, frequency = 1)
+opensimplex_noise(type = "S", width, height, depth, slice, frequency = 1)
 }
 \arguments{
 \item{type}{TODO}

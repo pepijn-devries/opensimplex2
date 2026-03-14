@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdbool.h>
-#include "OpenSimplex2F.h"
+#include "opensimplex2_ctypes.h"
+#include "OpenSimplex2S.h"
 
 #define PSSZIE 2048
 #define PSMASK 2047

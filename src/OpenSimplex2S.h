@@ -1,11 +1,11 @@
+#ifndef OPENSIMPLEX2S
+#define OPENSIMPLEX2S
 #ifdef __cplusplus
 extern "C" {
 #endif
 #include <stdint.h>
-#include "OpenSimplex2F.h"
+#include "opensimplex2_ctypes.h"
 
-OpenSimplexGradients *newOpenSimplexSGradients(OpenSimplexEnv *ose, int64_t seed);
-OpenSimplexEnv *initOpenSimplexS();
 double noiseS4_XYZBeforeW(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y, double z, double w);
 double noiseS4_XZBeforeYW(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y, double z, double w);
 double noiseS4_XYBeforeZW(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double y, double z, double w);
@@ -19,3 +19,4 @@ double noiseS2(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double x, double 
 #ifdef __cplusplus
 }
 #endif
+#endif //OPENSIMPLEX2S

@@ -19,8 +19,6 @@ RoxygenNote: 7.3.2
 LinkingTo: 
     cpp11
 Suggests: 
-    gganimate,
-    ggplot2,
     gifski,
     knitr,
     ragg,

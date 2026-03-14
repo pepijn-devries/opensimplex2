@@ -23,3 +23,23 @@ noise3dS_ <- function(width, height, depth, frequency) {
 noise4dS_ <- function(width, height, depth, slice, frequency) {
   .Call(`_opensimplex2_noise4dS_`, width, height, depth, slice, frequency)
 }
+
+simplex_space_ <- function(type, dimensions) {
+  .Call(`_opensimplex2_simplex_space_`, type, dimensions)
+}
+
+simplex_sample_space_2d <- function(ss, i, j) {
+  .Call(`_opensimplex2_simplex_sample_space_2d`, ss, i, j)
+}
+
+simplex_sample_space_3d <- function(ss, i, j, k) {
+  .Call(`_opensimplex2_simplex_sample_space_3d`, ss, i, j, k)
+}
+
+simplex_sample_space_4d <- function(ss, i, j, k, l) {
+  .Call(`_opensimplex2_simplex_sample_space_4d`, ss, i, j, k, l)
+}
+
+simplex_sample_close <- function(ss) {
+  .Call(`_opensimplex2_simplex_sample_close`, ss)
+}
