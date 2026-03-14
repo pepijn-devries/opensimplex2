@@ -22,7 +22,7 @@ image(opensimplex_noise("S", 100, 100, frequency = 2),
 
 ``` r
 scale_factor <- 50
-space        <- opensimplex_space("L", 4L)
+space        <- opensimplex_space("S", 4L)
 coords       <- expand.grid(z = 1:100, t = 1:100, frame = 1:100)
 coords$x     <- 100*sin((2*pi*coords$frame - 1)/100)
 coords$y     <- 100*cos((2*pi*coords$frame - 1)/100)
