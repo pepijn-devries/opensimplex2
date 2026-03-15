@@ -24,11 +24,12 @@ opensimplex_noise(type = "S", width, height, depth, slice, frequency = 1)
 
 ## Value
 
-TODO
+A `matrix` (in case of two dimensions) or `array` (in case of more
+dimensions) of `numeric` values between -1 and +1. TODO
 
 ## Examples
 
 ``` r
-mat <- opensimplex_noise("F", 100, 100)
+mat <- opensimplex_noise("S", 100, 100)
 image(mat)
 ```

@@ -1,18 +1,34 @@
 # opensimplex2
 
-TODO
+This package provides a high-performance implementation of OpenSimplex2,
+the successor to the original OpenSimplex noise. It is designed to
+produce smooth, organic-looking procedural content with fewer
+directional artifacts (streaking) than traditional Perlin noise.
 
 ## Installation
 
-TODO
+This package is currently experimental and can only be installed from
+GitHub:
 
 ``` r
-# TODO
+remotes::install_github("pepijn-devries/opensimplex2")
 ```
 
 ## Example
 
-TODO
+This library offers two primary methods for generating noise:
+
+### N-Dimensional Noise Arrays
+
+Generate a complete grid of noise values in a single call. This is ideal
+for pre-computing textures, terrain heightmaps, or static displacement
+maps. There are two variants available:
+
+- OpenSimplex2F (Faster): Optimized for speed, providing a classic
+  OpenSimplex look.
+- OpenSimplex2S (Smoother): A “SuperSimplex” variant that prioritizes
+  higher visual quality and reduced grid-alignment artefacts at a slight
+  performance cost.
 
 ``` r
 library(opensimplex2)
@@ -29,7 +45,48 @@ for (i in 1:100) {
 }
 ```
 
-![](reference/figures/README-example-.gif)
+![](reference/figures/README-example-array-.gif)
+
+### Continuous Gradient Fields
+
+Beyond static arrays, the library provides a sampleable gradient field.
+Instead of just returning a single noise value, this allows you to query
+the vector gradient at any precise n-dimensional coordinate.
+
+``` r
+## Let's create a raster of polar coordinate:
+r <- .5
+lon <- seq(-180, 180, by = 1)
+lat <- seq(-90, 90, by = 1)
+coords <-
+  expand.grid(
+    lon = lon,
+    lat = lat)
+## Now convert the polar coordinates to Cartesian coordinates:
+coords$x <- r*cos(pi*2*coords$lat/360)*sin(pi*2*coords$lon/360)
+coords$y <- r*cos(pi*2*coords$lat/360)*cos(pi*2*coords$lon/360)
+coords$z <- r*sin(pi*2*coords$lat/360)
+
+## Set seed to make the example reproducible:
+set.seed(0)
+
+## Let's create a noise gradient 3-dimensional space:
+space <- opensimplex_space("S", 3L)
+
+## Sample the space a the coordinates on the sphere:
+coords$value <- space$sample(coords$x, coords$y, coords$z)
+
+## Plot the sampled matrix:
+image(x= lon, y = lat, z = matrix(coords$value, length(lon), length(lat)))
+```
+
+![](reference/figures/README-example-sample-1.png)
+
+Unlike an array, the field is mathematically continuous. You can sample
+at any scale or offset without losing precision. This is useful for
+physics simulations (like flow fields or wind), surface normals for
+lighting, or calculating the “slope” of procedural terrain for erosion
+and placement logic.
 
 ## Acknowledgments
 
@@ -54,9 +111,3 @@ By contributing to this project, you agree to abide by its terms.
 - [`opensimplex_space()`](https://pepijn-devries.github.io/opensimplex2/reference/opensimplex_space.md)
   : TODO
 
-# Articles
-
-### All vignettes
-
-- [N-Dimensional
-  Noise](https://pepijn-devries.github.io/opensimplex2/articles/n-dimensional-noise.md):
