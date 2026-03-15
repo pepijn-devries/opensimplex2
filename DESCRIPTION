@@ -9,9 +9,11 @@ Authors@R:
       person("Marco", "Ciaramella", role = c("aut", "cph")),
       person("KdotJPG", role = c("aut", "cph"))
     )
-Description: Generate 2, 3 or 4-dimensional autocorrelated noise.
+Description: Generate 2, 3 or 4-dimensional gradient noise.
     The noise function is comparible to classic Perlin noise,
     but with less directional artifacts and lower computational overhead.
+    It can have applications procedural generation or (flow fields)
+    simulations.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -27,7 +29,6 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-VignetteBuilder: knitr
 URL: https://pepijn-devries.github.io/opensimplex2/, https://github.com/pepijn-devries/opensimplex2/
 BugReports: https://github.com/pepijn-devries/opensimplex2/issues
 Language: en-GB

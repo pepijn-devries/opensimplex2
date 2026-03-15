@@ -14,12 +14,13 @@ opensimplex_noise(type = "S", width, height, depth, slice, frequency = 1)
 \item{frequency}{TODO}
 }
 \value{
-TODO
+A \code{matrix} (in case of two dimensions) or \code{array} (in case of more
+dimensions) of \code{numeric} values between -1 and +1. TODO
 }
 \description{
 TODO
 }
 \examples{
-mat <- opensimplex_noise("F", 100, 100)
+mat <- opensimplex_noise("S", 100, 100)
 image(mat)
 }

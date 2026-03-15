@@ -4,9 +4,10 @@
 #' @param type TODO
 #' @param width,height,depth,slice TODO
 #' @param frequency TODO
-#' @returns TODO
+#' @returns A `matrix` (in case of two dimensions) or `array` (in case of more
+#' dimensions) of `numeric` values between -1 and +1. TODO
 #' @examples
-#' mat <- opensimplex_noise("F", 100, 100)
+#' mat <- opensimplex_noise("S", 100, 100)
 #' image(mat)
 #' @export
 opensimplex_noise <- function(type = "S", width, height, depth, slice, frequency = 1) {
