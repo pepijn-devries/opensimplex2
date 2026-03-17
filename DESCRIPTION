@@ -1,6 +1,6 @@
 Package: opensimplex2
 Title: Generate Multi-Dimensional Open Simplex Noise
-Version: 0.0.0001
+Version: 0.0.0002
 Authors@R:
     c(
       person("Pepijn", "de Vries", role = c("aut", "cre"),
@@ -10,8 +10,8 @@ Authors@R:
       person("KdotJPG", role = c("aut", "cph"))
     )
 Description: Generate 2, 3 or 4-dimensional gradient noise.
-    The noise function is comparible to classic Perlin noise,
-    but with less directional artifacts and lower computational overhead.
+    The noise function is comparable to classic Perlin noise,
+    but with less directional artefacts and lower computational overhead.
     It can have applications procedural generation or (flow fields)
     simulations.
 License: GPL (>= 3)
