@@ -7,8 +7,6 @@
 
 using namespace cpp11;
 
-//#define PERIOD 64 // TODO
-
 SimplexSpace::SimplexSpace (char type, int dimensions) {
   char my_type = 'F';
   if (dimensions < 2 || dimensions > 4) cpp11::stop("Dimensions out of range!");

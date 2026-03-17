@@ -22,4 +22,10 @@ private:
   OpenSimplexGradients * osg;
 };
 
+sexp simplex_sample_space_2d(external_pointer<SimplexSpace> ss,
+                             doubles i, doubles j);
+sexp simplex_sample_space_3d(external_pointer<SimplexSpace> ss,
+                             doubles i, doubles j, doubles k);
+sexp simplex_sample_space_4d(external_pointer<SimplexSpace> ss,
+                             doubles i, doubles j, doubles k, doubles l);
 #endif //SIMPLEX_SPACE_H

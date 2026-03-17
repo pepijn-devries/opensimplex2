@@ -2,22 +2,53 @@
 % Please edit documentation in R/simplex.R
 \name{opensimplex_space}
 \alias{opensimplex_space}
-\title{TODO}
+\title{Get a 2, 3, or 4 Dimensional OpenSimplex Noise Gradient Field}
 \usage{
 opensimplex_space(type = "S", dimensions = 2L)
 }
 \arguments{
-\item{type}{TODO}
+\item{type}{Type of OpenSimplex2 you wish to use. Should be either
+\code{"F"} for fast or \code{"S"} for smooth.}
 
-\item{dimensions}{TODO}
+\item{dimensions}{An integer value of number of dimensions to be used in your gradient
+space. Should be 2, 3 or 4.}
 }
 \value{
-TODO
+Returns a named \code{list}. It has the elements:
+\itemize{
+\item \emph{\code{sample}}: which is a function that will return the simplex noise value (between -1 and +1)
+at a given coordinate. The function takes the same number of arguments as the value of
+\code{dimensions}. Each argument is a coordinate in the \ifelse{html}{\out{n<sup>th</sup>}}{\eqn{n^{th}}{n^th}}
+dimension. You can provide multiple coordinates, as long as you provide the same
+number of coordinates in each dimension.
+\item \emph{\code{dimensions}}: an integer value indicating the number of dimensions
+available in this space object.
+\item \emph{\code{type}}: A \code{character} string indicating whether this object uses the fast
+(\code{"F"}) or smooth (\code{"S"}) variant of OpenSimplex2.
+\item \emph{\code{close}}: which is a function that closes the simplex noise gradient space. In other words, memory
+used to specify the gradient space is freed, and can no longer be accessed. After closing
+the space, you can no longer \code{sample} it.
+}
 }
 \description{
-TODO
+Create a continuous OpenSimplex noise gradient space, that can be sampled
+at any arbitrary coordinate. The gradient has \code{numeric} values between -1
+and +1. OpenSimplex2 uses gradient tables that ensure that the distribution
+of values is centred at zero, meaning the "peaks" and "valleys" are
+statistically balanced.
+
+The exact state of the noise gradient space depends on R's internal, random generator. So each time you call \code{opensimplex_space}, you will get a, space in a different state. If you want to obtain a reproducible state,, you simply set the random seed with \code{\link[=set.seed]{set.seed()}}.
 }
 \examples{
-# TODO
+## By setting a random generator seed, the example below becomes reproducible
+set.seed(0)
 
+## Open a extra smooth ("S") simplex noise gradient with 3 dimensions:
+space <- opensimplex_space("S", 3L)
+
+## Sample it at some random coordinates
+space$sample(i = 5*runif(10), j = 10*runif(10), k = 15*runif(10))
+
+## Close it when you are done
+space$close()
 }

@@ -2,23 +2,39 @@
 % Please edit documentation in R/simplex.R
 \name{opensimplex_noise}
 \alias{opensimplex_noise}
-\title{TODO}
+\title{Get a 2, 3, or 4 Dimensional Array of Simplex Noise}
 \usage{
 opensimplex_noise(type = "S", width, height, depth, slice, frequency = 1)
 }
 \arguments{
-\item{type}{TODO}
+\item{type}{Type of OpenSimplex2 you wish to use. Should be either
+\code{"F"} for fast or \code{"S"} for smooth.}
 
-\item{width, height, depth, slice}{TODO}
+\item{width, height, depth, slice}{Positive \code{integer} size of each of the
+desired dimensions. \code{width} and \code{height} dimensions are required. Other
+dimensions are optional. However, \code{depth} is required when \code{slice} dimension
+is specified.}
 
-\item{frequency}{TODO}
+\item{frequency}{The frequency (\code{numeric}) with which the noise gradient fluctuates
+with respect to each respective dimension. Low values (<1) will generate
+smooth gradients, whereas large values (>1) will result in very noisy
+gradients. Default value is 1.}
 }
 \value{
 A \code{matrix} (in case of two dimensions) or \code{array} (in case of more
-dimensions) of \code{numeric} values between -1 and +1. TODO
+dimensions) of \code{numeric} values between -1 and +1. OpenSimplex2 uses
+gradient tables that ensure that the distribution of values is centred at zero,
+meaning the "peaks" and "valleys" are statistically balanced.
 }
 \description{
-TODO
+Create a regular n-dimensional grid with an OpenSimplex2 noise gradient.
+You can control the noisiness to some degree with the \code{frequency} argument.
+If you want more control, you should use \code{\link{opensimplex_sample}}, which
+allows you to create a continuous OpenSimplex noise gradient space,
+that can be sampled at any arbitrary coordinate.
+}
+\details{
+The exact state of the noise gradient space depends on R's internal, random generator. So each time you call \code{opensimplex_space}, you will get a, space in a different state. If you want to obtain a reproducible state,, you simply set the random seed with \code{\link[=set.seed]{set.seed()}}.
 }
 \examples{
 mat <- opensimplex_noise("S", 100, 100)

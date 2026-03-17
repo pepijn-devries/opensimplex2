@@ -1,0 +1,14 @@
+The original C-code by Marco Ciaramella has been modified at some points,
+which do not affect its functionality. These modifications were made:
+
+ * Duplicated structures and functions have been removed
+ * Functions with identical names ('F' versus 'S' implementation)
+   were renamed to have unique names.
+ * In its original implementation, the functions were leaking memory. Therefore:
+   * Memory allocated in a function that loses scope outside those functions
+     is freed at the end of that function.
+   * For memory that is required throughout the use of an OpenSimplex2 space,
+     dedicated functions were written to free memory once the user is done.
+ * Most definitions were combined in a single header file
+ * Some int and long types were redefined more to more specific types with the stdint.h
+   library, to ensure cross-compiler and cross-platform reproducibility

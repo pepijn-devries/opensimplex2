@@ -17,8 +17,7 @@
 	 */
 
 int32_t _fastFloor(double x){
-  // Tiny epsilon to prevent boundary jumping
-  int32_t xi = (int32_t)(x + 1e-15);
+  int32_t xi = (int32_t)x;
 	return x < xi ? xi - 1 : xi;
 }
 
@@ -435,8 +434,6 @@ LatticePoint3D **_newLatticePoint3DConstArray(){
 		c6->nextOnSuccess = NULL;
 		c7->nextOnFailure = c7->nextOnSuccess = NULL;
 
-		// TODO this is causing problems let's see how to clean these values
-		//free(c1); free(c2); free(c3); free(c4); free(c5); free(c6); free(c7);
 		plp3DArr[i] = c0;
 	}
 	return plp3DArr;
