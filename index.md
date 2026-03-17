@@ -56,8 +56,8 @@ the vector gradient at any precise n-dimensional coordinate.
 ``` r
 ## Let's create a raster of polar coordinate:
 r <- .5
-lon <- seq(-180, 180, by = 1)
-lat <- seq(-90, 90, by = 1)
+lon <- seq(-180, 180)
+lat <- seq(-90, 90)
 coords <-
   expand.grid(
     lon = lon,
@@ -73,11 +73,12 @@ set.seed(0)
 ## Let's create a noise gradient 3-dimensional space:
 space <- opensimplex_space("S", 3L)
 
-## Sample the space a the coordinates on the sphere:
+## Sample the space at the coordinates on the sphere:
 coords$value <- space$sample(coords$x, coords$y, coords$z)
 
 ## Plot the sampled matrix:
-image(x= lon, y = lat, z = matrix(coords$value, length(lon), length(lat)))
+mat <- matrix(coords$value, length(lon), length(lat))
+image(x= lon, y = lat, z = mat)
 ```
 
 ![](reference/figures/README-example-sample-1.png)
