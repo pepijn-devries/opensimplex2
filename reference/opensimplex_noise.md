@@ -2,7 +2,8 @@
 
 Create a regular n-dimensional grid with an OpenSimplex2 noise gradient.
 You can control the noisiness to some degree with the `frequency`
-argument. If you want more control, you should use `opensimplex_sample`,
+argument. If you want more control, you should use
+[`opensimplex_space()`](https://pepijn-devries.github.io/opensimplex2/reference/opensimplex_space.md),
 which allows you to create a continuous OpenSimplex noise gradient
 space, that can be sampled at any arbitrary coordinate.
 
