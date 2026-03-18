@@ -1,7 +1,7 @@
 #include <cpp11.hpp>
 #include <functional>
 #include <R_ext/Random.h>
-#include "opensimplex2_types.hpp"
+#include "opensimplex2_types.h"
 #include "OpenSimplex2F.h"
 #include "OpenSimplex2S.h"
 
