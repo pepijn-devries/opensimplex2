@@ -1,3 +1,3 @@
-# opensimplex2 V0.0.0002
+# opensimplex2 V0.0.1.0001
 
 * Initial Release. Implements `opensimplex_noise()` and `opensimplex_space()`

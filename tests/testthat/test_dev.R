@@ -8,8 +8,8 @@ test_that("Source code should not have things on TODO list", {
     files_to_check <-
       list.files(system.file(package = "opensimplex2"),
                  pattern = "[.]r$|NEWS|DESCRIPTION|README", recursive = TRUE, full.names = TRUE)
-    files_to_check <- files_to_check[!endsWith(files_to_check, "test_dev.r") &
-                                       !endsWith(files_to_check, ".png")]
+    files_to_check <-
+      files_to_check[!grepl(".*?(test_dev.r|.png|.gif)$",files_to_check)]
     any(
       unlist(
         lapply(files_to_check, function(file) {
