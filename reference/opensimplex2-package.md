@@ -1,7 +1,7 @@
 # opensimplex2: Generate Multi-Dimensional Open Simplex Noise
 
 Generate 2, 3 or 4-dimensional gradient noise. The noise function is
-comparible to classic Perlin noise, but with less directional artifacts
+comparable to classic Perlin noise, but with less directional artefacts
 and lower computational overhead. It can have applications procedural
 generation or (flow fields) simulations.
 

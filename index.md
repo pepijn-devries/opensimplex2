@@ -3,7 +3,7 @@
 This package provides a high-performance implementation of OpenSimplex2,
 the successor to the original OpenSimplex noise. It is designed to
 produce smooth, organic-looking procedural content with fewer
-directional artifacts (streaking) than traditional Perlin noise.
+directional artefacts (streaking) than traditional Perlin noise.
 
 ## Installation
 
@@ -89,7 +89,7 @@ physics simulations (like flow fields or wind), surface normals for
 lighting, or calculating the “slope” of procedural terrain for erosion
 and placement logic.
 
-## Acknowledgments
+## Acknowledgements
 
 This package wraps the C-code by [Marco
 Ciaramella](https://github.com/MarcoCiaramella/opensimplex2), which in
