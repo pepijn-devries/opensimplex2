@@ -122,6 +122,8 @@ test_that("OpenSimplex space has different time when seed is not set", {
           setNames(letters[8 + seq_len(dimensions)])
         noise1 <- do.call(space1$sample, coords)
         noise2 <- do.call(space2$sample, coords)
+        space1$close()
+        space2$close()
         result <- result && !identical(noise1, noise2)
       }
     }
