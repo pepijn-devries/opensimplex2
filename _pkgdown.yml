@@ -3,5 +3,3 @@ template:
   bootstrap: 5
   params:
     logo: man/figures/logo.svg
-  bslib:
-    extra_css: pkgdown/extra.css
