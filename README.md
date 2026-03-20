@@ -4,6 +4,11 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml)
+<!--![cranlogs](https://cranlogs.r-pkg.org/badges/opensimplex2)-->
+<!--[![version](https://www.r-pkg.org/badges/version/opensimplex2)](https://CRAN.R-project.org/package=opensimplex2) -->
+<!--[![cran checks](https://badges.cranchecks.info/worst/opensimplex2.svg)](https://cran.r-project.org/web/checks/check_results_opensimplex2.html)-->
+[![opensimplex2 status
+badge](https://pepijn-devries.r-universe.dev/badges/opensimplex2)](https://pepijn-devries.r-universe.dev/opensimplex2)
 [![Codecov test
 coverage](https://codecov.io/gh/pepijn-devries/opensimplex2/graph/badge.svg)](https://app.codecov.io/gh/pepijn-devries/opensimplex2)
 <!-- badges: end -->
@@ -17,11 +22,10 @@ directional artefacts (streaking) than traditional Perlin noise.
 
 ## Installation
 
-This package is currently experimental and can only be installed from
-GitHub:
+Install latest developmental version from R-Universe:
 
 ``` r
-remotes::install_github("pepijn-devries/opensimplex2")
+install.packages("opensimplex2", repos = c('https://pepijn-devries.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
 ## Example
@@ -61,7 +65,9 @@ for (i in 1:100) {
 
 Beyond static arrays, the library provides a sampleable gradient field.
 Instead of just returning a single noise value, this allows you to query
-the vector gradient at any precise n-dimensional coordinate.
+the vector gradient at any precise n-dimensional coordinate. This is
+demonstrated in the example below, where the noise is sampled across the
+surface of a sphere.
 
 ``` r
 ## Let's create a raster of polar coordinate:
