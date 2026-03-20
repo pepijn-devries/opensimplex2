@@ -1,0 +1,4 @@
+/* Hide the 'official' static logo only on the home page */
+.home .page-header img, .home .sidebar img {
+  display: none;
+}
