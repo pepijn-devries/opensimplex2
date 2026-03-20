@@ -3,6 +3,5 @@ template:
   bootstrap: 5
   params:
     logo: man/figures/logo.svg
-includes:
-    in_header: |
-      <link rel="stylesheet" href="extra.css">
+  bslib:
+    extra_css: pkgdown/extra.css
