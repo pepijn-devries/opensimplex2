@@ -18,7 +18,7 @@ library(ragg)
 library(gifski)
 ```
 
-# opensimplex2 <a href="https://pepijn-devries.github.io/opensimplex2/"><img src="https://raw.githubusercontent.com/pepijn-devries/opensimplex2/refs/heads/main/pkgdown/media/logo-anim.gif" align="right" width="120" height="139" alt="opensimplex2 website" /></a>
+# opensimplex2 <a href="https://pepijn-devries.github.io/opensimplex2/"><img src="man/figures/logo-anim.gif" align="right" width="120" height="139" alt="opensimplex2 website" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml)
