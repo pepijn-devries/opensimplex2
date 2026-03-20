@@ -1,4 +1,4 @@
-# opensimplex2 [![opensimplex2 website](reference/figures/logo-anim.gif)](https://pepijn-devries.github.io)
+# opensimplex2 [![opensimplex2 website](reference/figures/logo.gif)](https://pepijn-devries.github.io)
 
 This package provides a high-performance implementation of OpenSimplex2,
 the successor to the original OpenSimplex noise. It is designed to
