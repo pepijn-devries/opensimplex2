@@ -1,4 +1,4 @@
-# opensimplex2
+# opensimplex2 [](https://pepijn-devries.github.io/opensimplex2/)
 
 [![opensimplex2
 website](https://github.com/pepijn-devries/opensimplex2/blob/main/man/figures/logo.gif?raw=true)](https://pepijn-devries.github.io)
