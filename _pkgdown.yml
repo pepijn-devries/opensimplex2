@@ -2,4 +2,7 @@ url: https://pepijn-devries.github.io/opensimplex2/
 template:
   bootstrap: 5
   params:
-    logo: man/figures/logo.gif
+    logo: man/figures/logo.svg
+includes:
+    in_header: |
+      <link rel="stylesheet" href="extra.css">

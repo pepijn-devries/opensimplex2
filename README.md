@@ -1,5 +1,5 @@
 
-# opensimplex2 <a href="https://pepijn-devries.github.io"><img src="man/figures/logo.gif" align="right" width="120" height="139" alt="opensimplex2 website" /></a>
+# opensimplex2
 
 <!-- badges: start -->
 
@@ -7,6 +7,8 @@
 [![Codecov test
 coverage](https://codecov.io/gh/pepijn-devries/opensimplex2/graph/badge.svg)](https://app.codecov.io/gh/pepijn-devries/opensimplex2)
 <!-- badges: end -->
+
+<a href="https://pepijn-devries.github.io"><img src="https://github.com/pepijn-devries/opensimplex2/blob/main/man/figures/logo.gif?raw=true" align="right" width="120" height="139" alt="opensimplex2 website" /></a>
 
 This package provides a high-performance implementation of OpenSimplex2,
 the successor to the original OpenSimplex noise. It is designed to
