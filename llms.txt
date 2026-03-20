@@ -10,11 +10,10 @@ directional artefacts (streaking) than traditional Perlin noise.
 
 ## Installation
 
-This package is currently experimental and can only be installed from
-GitHub:
+Install latest developmental version from R-Universe:
 
 ``` r
-remotes::install_github("pepijn-devries/opensimplex2")
+install.packages("opensimplex2", repos = c('https://pepijn-devries.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
 ## Example
@@ -54,7 +53,9 @@ for (i in 1:100) {
 
 Beyond static arrays, the library provides a sampleable gradient field.
 Instead of just returning a single noise value, this allows you to query
-the vector gradient at any precise n-dimensional coordinate.
+the vector gradient at any precise n-dimensional coordinate. This is
+demonstrated in the example below, where the noise is sampled across the
+surface of a sphere.
 
 ``` r
 ## Let's create a raster of polar coordinate:

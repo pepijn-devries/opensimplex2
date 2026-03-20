@@ -1,4 +1,9 @@
-/* Hide the 'official' static logo only on the home page */
-.home .page-header img, .home .sidebar img {
-  display: none;
+/* Target the specific logo image in the header on the home page */
+.home .page-header img.logo {
+  display: none !important;
+}
+
+/* Fallback if your template doesn't use the .home class on the body */
+body > .container > .row > .contents > .page-header > img.logo {
+  display: none !important;
 }
