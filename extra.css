@@ -1,9 +1,16 @@
-/* Target the specific logo image in the header on the home page */
-.home .page-header img.logo {
+
+/* 1. Target the auto-injected logo specifically on the homepage */
+.home .logo, 
+.home .page-header img.logo, 
+.home img[src*="logo.svg"], 
+.home img[src*="logo.png"] {
   display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
-/* Fallback if your template doesn't use the .home class on the body */
-body > .container > .row > .contents > .page-header > img.logo {
+/* 2. Target the sidebar logo if it's appearing there too */
+.home .sidebar img.logo {
   display: none !important;
 }
