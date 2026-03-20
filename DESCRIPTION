@@ -1,6 +1,6 @@
 Package: opensimplex2
 Title: Generate Multi-Dimensional Open Simplex Noise
-Version: 0.0.1.0014
+Version: 0.0.1.0015
 Authors@R:
     c(
       person("Pepijn", "de Vries", role = c("aut", "cre"),
