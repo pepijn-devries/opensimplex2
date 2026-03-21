@@ -18,7 +18,7 @@ library(ragg)
 library(gifski)
 ```
 
-# opensimplex2 <a href="https://pepijn-devries.github.io/opensimplex2/"><img src="man/figures/logo-anim.gif" class="pkgdown-hide" align="right" width="120" height="139" alt="opensimplex2 website" /></a>
+# opensimplex2 `r if (knitr::is_html_output()) ' ' else '<a href="https://pepijn-devries.github.io"><img src="man/figures/logo-anim.gif" align="right" width="120" height="139" /></a>'`
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml)
