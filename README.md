@@ -1,5 +1,5 @@
 
-# opensimplex2
+## opensimplex2
 
 <!-- badges: start -->
 
