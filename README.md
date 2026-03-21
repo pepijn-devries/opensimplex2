@@ -1,5 +1,5 @@
 
-# opensimplex2 <a href="https://pepijn-devries.github.io/opensimplex2/"><img src="man/figures/logo-anim.gif" class="pkgdown-hide" align="right" width="120" height="139" alt="opensimplex2 website" /></a>
+# opensimplex2
 
 <!-- badges: start -->
 
