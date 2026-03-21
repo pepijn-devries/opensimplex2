@@ -15,13 +15,13 @@ Source:
 [`DESCRIPTION`](https://github.com/pepijn-devries/opensimplex2/blob/main/DESCRIPTION)
 
 de Vries P, Ciaramella M, KdotJPG (2026). *opensimplex2: Generate
-Multi-Dimensional Open Simplex Noise*. R package version 0.0.1.0020,
+Multi-Dimensional Open Simplex Noise*. R package version 0.0.1.0021,
 <https://pepijn-devries.github.io/opensimplex2/>.
 
     @Manual{,
       title = {opensimplex2: Generate Multi-Dimensional Open Simplex Noise},
       author = {Pepijn {de Vries} and Marco Ciaramella and {KdotJPG}},
       year = {2026},
-      note = {R package version 0.0.1.0020},
+      note = {R package version 0.0.1.0021},
       url = {https://pepijn-devries.github.io/opensimplex2/},
     }
