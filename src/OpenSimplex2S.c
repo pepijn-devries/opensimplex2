@@ -1592,7 +1592,7 @@ OpenSimplexGradients *newOpenSimplexSGradients(OpenSimplexEnv *ose, int64_t seed
 		source[i] = i;
 	for (int i = PSSZIE - 1; i >= 0; i--)
 	{
-		seed = seed * 6364136223846793005L + 1442695040888963407L;
+		seed = (uint64_t)seed * 6364136223846793005ULL + 1442695040888963407ULL;
 		int r = (int)((seed + 31) % (i + 1));
 		if (r < 0)
 			r += (i + 1);
