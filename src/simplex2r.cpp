@@ -14,7 +14,7 @@ SimplexSpace::SimplexSpace (char type, int dimensions) {
   if (type == 'S') my_type = 'S';
   this->type = my_type;
   GetRNGstate();
-  uint32_t seed = (uint32_t)(unif_rand() * 4294967296.0);
+  int64_t seed = (int64_t)(unif_rand() * 4294967296.0);
   PutRNGstate();
   if (this->type == 'F') {
     ose = initOpenSimplex();

@@ -22,9 +22,9 @@ library(gifski)
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/opensimplex2/actions/workflows/R-CMD-check.yaml)
-<!--![cranlogs](https://cranlogs.r-pkg.org/badges/opensimplex2)-->
-<!--[![version](https://www.r-pkg.org/badges/version/opensimplex2)](https://CRAN.R-project.org/package=opensimplex2) -->
-<!--[![cran checks](https://badges.cranchecks.info/worst/opensimplex2.svg)](https://cran.r-project.org/web/checks/check_results_opensimplex2.html)-->
+![cranlogs](https://cranlogs.r-pkg.org/badges/opensimplex2)
+[![version](https://www.r-pkg.org/badges/version/opensimplex2)](https://CRAN.R-project.org/package=opensimplex2)
+[![cran checks](https://badges.cranchecks.info/worst/opensimplex2.svg)](https://cran.r-project.org/web/checks/check_results_opensimplex2.html)
 [![opensimplex2 status badge](https://pepijn-devries.r-universe.dev/badges/opensimplex2)](https://pepijn-devries.r-universe.dev/opensimplex2)
 [![Codecov test coverage](https://codecov.io/gh/pepijn-devries/opensimplex2/graph/badge.svg)](https://app.codecov.io/gh/pepijn-devries/opensimplex2)
 <!-- badges: end -->
