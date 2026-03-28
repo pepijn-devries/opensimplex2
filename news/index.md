@@ -1,6 +1,6 @@
 # Changelog
 
-## opensimplex2 V0.0.2.0001
+## opensimplex2 V0.0.2.0002
 
 - Fixed undefined behaviour
 - Added badges in README

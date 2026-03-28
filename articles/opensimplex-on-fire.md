@@ -67,7 +67,7 @@ for (i in 1:nframes) {
 ```
 
 ![Hot
-bubbles](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles.gif)
+bubbles](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles-.gif)
 
 Hot bubbles
 
@@ -91,7 +91,7 @@ for (i in 1:nframes) {
 ```
 
 ![Heat
-gradient](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient.gif)
+gradient](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient-.gif)
 
 Heat gradient
 
@@ -115,7 +115,7 @@ for (i in 1:nframes) {
 }
 ```
 
-![Flames](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames.gif)
+![Flames](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames-.gif)
 
 Flames
 
@@ -165,7 +165,7 @@ for (i in 1:nframes) {
 }
 ```
 
-![Seamless](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless.gif)
+![Seamless](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless-.gif)
 
 Seamless
 
