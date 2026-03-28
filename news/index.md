@@ -4,6 +4,8 @@
 
 - Fixed undefined behaviour
 - Added badges in README
+- Added
+  [`vignette("opensimplex-on-fire")`](https://pepijn-devries.github.io/opensimplex2/articles/opensimplex-on-fire.md)
 
 ## opensimplex2 V0.0.2
 

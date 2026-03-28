@@ -2,7 +2,7 @@
 
 Generate 2, 3 or 4-dimensional gradient noise. The noise function is
 comparable to classic Perlin noise, but with less directional artefacts
-and lower computational overhead. It can have applications procedural
+and lower computational overhead. It can have applications in procedural
 generation or (flow fields) simulations.
 
 ## See also

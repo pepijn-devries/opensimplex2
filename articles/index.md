@@ -2,5 +2,5 @@
 
 ### All vignettes
 
-- [N-Dimensional
-  Noise](https://pepijn-devries.github.io/opensimplex2/articles/n-dimensional-noise.md):
+- [Opensimplex on
+  Fire](https://pepijn-devries.github.io/opensimplex2/articles/opensimplex-on-fire.md):
