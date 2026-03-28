@@ -1,0 +1,193 @@
+---
+title: "Opensimplex on Fire"
+output:
+  rmarkdown::html_vignette:
+    self_contained: false
+vignette: >
+  %\VignetteIndexEntry{Opensimplex on Fire}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+do_render <- Sys.getenv("RENDER_OPENSIMPLEX2_VIGNETTE") == "TRUE"
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "400px"
+)
+knitr::knit_hooks$set(
+  fullbleed = function(before, options, envir) {
+  if (before) {
+    par(mar = c(0,0,0,0), oma = c(0,0,0,0))
+  }
+},
+document = function(x) {
+    fig_dir <- knitr::opts_chunk$get("fig.path")
+    all_gifs <- list.files(fig_dir, pattern = "\\.gif$", full.names = TRUE)
+    file.copy(all_gifs, "../pkgdown/vignette/", overwrite = TRUE)
+    return(x)
+})
+
+library(ragg)
+library(gifski)
+```
+
+One of the things you can use OpenSimplex2 noise for is some fun rendering effects.
+In this vignette you will see how you can create a fire effect with
+OpenSimplex2 noise. This means that we will going to render a sequence of
+images, that put together will form an animation resembling fire.
+I will try to show you each step along the way.
+
+## Setting up OpenSimplex2 Space
+
+We are going to use a matrix with values between 0 and 1 to represent
+an image of fire. Where cells with values of 1 are 'hot' and those with
+0 are 'cold'.
+
+So before we can do anything meaningful, we start by defining some properties
+for the matrix. After loading the package library we define some properties for
+the animation and the matrix that will hold the image data.
+
+We define `w` and `h` as the width and height of the matrix, respectively.
+The number of frames in the animations is set with `nframes`.
+We use `scale` to tweak the scale of the Simplex noise in the xy-plane (i.e.,
+the plane of the image). We generate a `data.frame` of coordinates that
+we will use for sampling the OpenSimplex2 noise space and store in the image
+matrix. We assign it to the `coords` object.
+
+We also define a nice fire palette for our image, and call it `fire_pal`. Finally,
+we setup the OpenSimplex2 space. We use the smooth (`"S"`) variant for our
+purpose. We define 3 dimensions: 2 dimensions for the xy-plane of the image,
+and 1 dimension to represent time. Note that we also use `set.seed(0)`. We do
+so to make this vignette reproducible.
+
+```{r setup-space}
+library(opensimplex2)
+w <- 100L
+h <- 100L
+nframes <- 100L
+scale <- .05
+coords <- expand.grid(x = scale*seq_len(w), y = scale*seq_len(h))
+
+fire_pal <- colorRampPalette(c("#000000", "#330000", "#FF0000", "#FFCC00", "#FFFFCC"))
+
+set.seed(0)
+space <- opensimplex_space(dimensions = 3)
+```
+
+## Hot Bubbles
+
+First we start our animation by sampling the noise space along the
+time dimension. We store the sampled values in a matrix named `feed`.
+As the noise is scaled between -1 and 1, we rescale the values by
+adding 4 and dividing by 5. This way, each cell will have some base
+'heat' (i.e., values >0). This already gives a nice animation, and feels
+a bit like the surface of the sun, but it doesn't look like fire yet.
+
+```{r hot-bubbles, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", animation.hook='gifski', interval=0.05, message=FALSE, fullbleed=TRUE, eval=do_render}
+speed1 <- .02
+for (i in 1:nframes) {
+  time <- rep(i*speed1, nrow(coords))
+  feed <- matrix(space$sample(coords$x, coords$y, time), w, h)
+  feed <- (4 + feed)/5
+  image(feed,
+        axes = FALSE, ann = FALSE, xaxs = "i", yaxs = "i",
+        zlim = c(0, 1), col = fire_pal(100))
+}
+```
+
+![Hot bubbles](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles.gif)
+
+## Heat Gradient
+
+In order to make it look more like fire, we introduce a `cooling` matrix.
+It has values scaled between 0 at the top, up to 1 at the bottom.
+By multiplying the 'hot bubbles' from the previous step with this
+cooling gradient, it will cool down pixels at the top of the plot.
+
+```{r heat-gradient, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", animation.hook='gifski', interval=0.05, message=FALSE, fullbleed=TRUE, eval=do_render}
+cooling <- matrix(1 - seq_len(h)/h, w, h, byrow = TRUE)
+for (i in 1:nframes) {
+  time <- rep(i*speed1, nrow(coords))
+  feed <- matrix(space$sample(coords$x, coords$y, time), w, h)
+  feed <- (4 + feed)/5
+  image(feed*cooling,
+        axes = FALSE, ann = FALSE, xaxs = "i", yaxs = "i",
+        zlim = c(0, 1), col = fire_pal(100))
+}
+```
+
+![Heat gradient](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient.gif)
+
+## Adding Movement
+
+It looks more like fire already. But we are not there yet. It feels a bit static,
+whereas real flames would move upwards. To achieve this, we need to scroll
+across the xy-plane in the noise space. For this purpose we introduce `speed2`,
+and move the sampling position each frame with `-speed2*i`.
+
+```{r flames, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", animation.hook='gifski', interval=0.05, message=FALSE, fullbleed=TRUE, eval=do_render}
+speed2 <- .05
+for (i in 1:nframes) {
+  time <- rep(i*speed1, nrow(coords))
+  feed <- matrix(space$sample(coords$x, coords$y - speed2*i, time), w, h)
+  feed <- (4 + feed)/5
+  image(feed*cooling,
+        axes = FALSE, ann = FALSE, xaxs = "i", yaxs = "i",
+        zlim = c(0, 1), col = fire_pal(100))
+}
+```
+
+![Flames](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames.gif)
+
+There you have it. This looks like a nice fire. Of course there are many
+improvements possible. You could combine different scales in different noise
+spaces to give it a more dynamic feel. You could also make the path along
+which the noise is sampled more fickly. But I'll leave that up to you to
+experiment with that.
+
+## Seamless Animation
+
+You can use OpenSimplex2 noise to create seamless animations. The trick is
+that you have to sample your noise space at coordinates that are the same
+at the end as at the start. So if you sample the space along a path, you
+could use a circular path to make sure you end up at the same position as where
+you started.
+
+This trick was also applied when rendering the cow logo for this package
+([see source code](https://github.com/pepijn-devries/opensimplex2/blob/main/data-raw/animate-logo.R).
+
+In the example above we scroll along the y-axis in the xy-plane. But
+what if we have a cylinder and roll along its surface? That way, if
+we rotate 360 degrees, we end up with the same noise. To achieve this
+we need an extra dimension, as the cylinder is three dimensional, and
+we still need a time dimension. If we loop the time along a triangular
+function, we can also cycle these values indefinitely. All of this
+is demonstrated in the example below.
+
+```{r seamless, fig.width=10, fig.height=10, fig.dpi=10, out.width="200px", animation.hook='gifski', interval=0.05, message=FALSE, fullbleed=TRUE, eval=do_render}
+space4d <- opensimplex_space(dimensions = 4)
+
+coords_cyl   <- expand.grid(x = scale*seq_len(w), i = seq_len(nframes))
+cyl_radius   <- 1
+time_scale   <- 2
+time_cycle   <- time_scale*2*abs(nframes/2 - 1:nframes)/nframes
+for (i in 1:nframes) {
+  time <- rep(time_cycle[i], nrow(coords_cyl))
+  feed <- matrix(space4d$sample(coords_cyl$x,
+                                cyl_radius*sin(2*pi*(i - coords_cyl$i)/nframes),
+                                cyl_radius*cos(2*pi*(i - coords_cyl$i)/nframes),
+                                time), w, h)
+  feed <- (4 + feed)/5
+  image(feed*cooling,
+        axes = FALSE, ann = FALSE, xaxs = "i", yaxs = "i",
+        zlim = c(0, 1), col = fire_pal(100))
+}
+```
+
+![Seamless](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless.gif)
+
+## Sources of Inspiration
+
+TODO

@@ -2,6 +2,7 @@
 
 * Fixed undefined behaviour
 * Added badges in README
+* Added `vignette("opensimplex-on-fire")`
 
 # opensimplex2 V0.0.2
 
