@@ -1,6 +1,6 @@
 Package: opensimplex2
 Title: Generate Multi-Dimensional Open Simplex Noise
-Version: 0.0.2
+Version: 0.0.2.0001
 Authors@R:
     c(
       person("Pepijn", "de Vries", role = c("aut", "cre"),
@@ -12,7 +12,7 @@ Authors@R:
 Description: Generate 2, 3 or 4-dimensional gradient noise.
     The noise function is comparable to classic Perlin noise,
     but with less directional artefacts and lower computational overhead.
-    It can have applications procedural generation or (flow fields)
+    It can have applications in procedural generation or (flow fields)
     simulations.
 License: GPL (>= 3)
 Encoding: UTF-8
@@ -32,3 +32,4 @@ Config/testthat/edition: 3
 URL: https://pepijn-devries.github.io/opensimplex2/, https://github.com/pepijn-devries/opensimplex2/
 BugReports: https://github.com/pepijn-devries/opensimplex2/issues
 Language: en-GB
+VignetteBuilder: knitr
