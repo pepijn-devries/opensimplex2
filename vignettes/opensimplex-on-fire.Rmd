@@ -97,7 +97,7 @@ for (i in 1:nframes) {
 }
 ```
 
-![Hot bubbles](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles.gif)
+![Hot bubbles](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles-.gif)
 
 ## Heat Gradient
 
@@ -118,7 +118,7 @@ for (i in 1:nframes) {
 }
 ```
 
-![Heat gradient](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient.gif)
+![Heat gradient](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient-.gif)
 
 ## Adding Movement
 
@@ -139,7 +139,7 @@ for (i in 1:nframes) {
 }
 ```
 
-![Flames](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames.gif)
+![Flames](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames-.gif)
 
 There you have it. This looks like a nice fire. Of course there are many
 improvements possible. You could combine different scales in different noise
@@ -186,7 +186,7 @@ for (i in 1:nframes) {
 }
 ```
 
-![Seamless](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless.gif)
+![Seamless](https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless-.gif)
 
 ## Sources of Inspiration
 
