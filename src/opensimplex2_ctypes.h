@@ -69,10 +69,10 @@ Grad2 _newGrad2(double dx, double dy);
 Grad3 _newGrad3(double dx, double dy, double dz);
 Grad4 _newGrad4(double dx, double dy, double dz, double dw);
 
-OpenSimplexEnv *initOpenSimplex();
+OpenSimplexEnv *initOpenSimplex(void);
 OpenSimplexGradients *newOpenSimplexGradients(OpenSimplexEnv *ose, int64_t seed);
 OpenSimplexGradients *newOpenSimplexSGradients(OpenSimplexEnv *ose, int64_t seed);
-OpenSimplexEnv *initOpenSimplexS();
+OpenSimplexEnv *initOpenSimplexS(void);
 
 void freeOpenSimplex(OpenSimplexEnv *ose);
 void freeOpenSimplexS(OpenSimplexEnv *ose);
