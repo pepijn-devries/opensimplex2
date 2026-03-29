@@ -38,6 +38,12 @@ smooth, organic-looking procedural content with fewer directional artefacts
 
 ## Installation
 
+Install CRAN release:
+
+``` {r install-cran, eval=FALSE}
+install.packages("CopernicusMarine")
+```
+
 Install latest developmental version from R-Universe:
 
 ``` {r install, eval=FALSE}

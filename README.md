@@ -23,6 +23,12 @@ directional artefacts (streaking) than traditional Perlin noise.
 
 ## Installation
 
+Install CRAN release:
+
+``` r
+install.packages("CopernicusMarine")
+```
+
 Install latest developmental version from R-Universe:
 
 ``` r
