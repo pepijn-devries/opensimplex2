@@ -1,7 +1,8 @@
-# opensimplex2 V0.0.2.0005
+# opensimplex2 V0.0.3
 
 * Fixed undefined behaviour
-* Added badges in README
+* Fixed CRAN warnings
+* Updated README
 * Added `vignette("opensimplex-on-fire")`
 
 # opensimplex2 V0.0.2
