@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   out.width = "400px"
 )
+knitr::opts_knit$set(upload.fun = identity)
 knitr::knit_hooks$set(
   fullbleed = function(before, options, envir) {
   if (before) {
