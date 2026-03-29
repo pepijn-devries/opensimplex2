@@ -61,7 +61,7 @@ Grad4 _newGrad4(double dx, double dy, double dz, double dw){
     return grad4;
 }
 
-Grad2 *_newGrad2ConstArray(){
+Grad2 *_newGrad2ConstArray(void){
     Grad2 *arr = (Grad2 *) malloc(sizeof(Grad2)*24);
     int i = 0;
 	arr[i++] = _newGrad2(0.130526192220052, 0.99144486137381);
@@ -100,7 +100,7 @@ Grad2 *_newGrad2ConstArray(){
     return gradients2D;
 }
 
-Grad3 *_newGrad3ConstArray(){
+Grad3 *_newGrad3ConstArray(void){
 	Grad3 *arr = (Grad3 *)malloc(sizeof(Grad3) * 48);
 	int i = 0;
 	arr[i++] = _newGrad3(-2.22474487139, -2.22474487139, -1.0);
@@ -164,7 +164,7 @@ Grad3 *_newGrad3ConstArray(){
 	return gradients3D;
 }
 
-Grad4 *_newGrad4ConstArray(){
+Grad4 *_newGrad4ConstArray(void){
 	Grad4 *arr = (Grad4 *)malloc(sizeof(Grad4) * 160);
 	int i = 0;
 	arr[i++] = _newGrad4(-0.753341017856078, -0.37968289875261624, -0.37968289875261624, -0.37968289875261624);
@@ -381,7 +381,7 @@ LatticePoint4D *_newLatticePoint4D(int32_t xsv, int32_t ysv, int32_t zsv, int32_
 	return plp4D;
 }
 
-LatticePoint2D **_newLatticePoint2DConstArray(){
+LatticePoint2D **_newLatticePoint2DConstArray(void){
 	LatticePoint2D **plp2DArr = (LatticePoint2D **) malloc(sizeof(LatticePoint2D *) * 4);
 	plp2DArr[0] = _newLatticePoint2D(1, 0);
 	plp2DArr[1] = _newLatticePoint2D(0, 0);
@@ -390,7 +390,7 @@ LatticePoint2D **_newLatticePoint2DConstArray(){
 	return plp2DArr;
 }
 
-LatticePoint3D **_newLatticePoint3DConstArray(){
+LatticePoint3D **_newLatticePoint3DConstArray(void){
 	LatticePoint3D **plp3DArr = (LatticePoint3D **)malloc(sizeof(LatticePoint3D *) * 8);
 	for (int i = 0; i < 8; i++){
 		int i1, j1, k1, i2, j2, k2;
@@ -439,7 +439,7 @@ LatticePoint3D **_newLatticePoint3DConstArray(){
 	return plp3DArr;
 }
 
-LatticePoint4D **_newLatticePoint4DConstArray(){
+LatticePoint4D **_newLatticePoint4DConstArray(void){
 	LatticePoint4D **plp4DArr = (LatticePoint4D **) malloc(sizeof(LatticePoint4D *) * 16);
 	for (int i = 0; i < 16; i++) {
 		plp4DArr[i] = _newLatticePoint4D((i >> 0) & 1, (i >> 1) & 1, (i >> 2) & 1, (i >> 3) & 1);
@@ -650,48 +650,48 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 		if (aabb > 0){
 			asi = zsi;
 			bsi = wsi;
-			vertexIndex = 0b0011;
-			via = 0b0111;
-			vib = 0b1011;
+			vertexIndex = 0x3; //0b0011;
+			via = 0x7; //0b0111;
+			vib = 0xB; //0b1011;
 		}
 		else{
 			asi = xsi;
 			bsi = ysi;
-			vertexIndex = 0b1100;
-			via = 0b1101;
-			vib = 0b1110;
+			vertexIndex = 0xC; //0b1100;
+			via = 0xD; //0b1101;
+			vib = 0xE; //0b1110;
 		}
 	}
 	else if (ababScore > abbaScore){
 		if (abab > 0){
 			asi = ysi;
 			bsi = wsi;
-			vertexIndex = 0b0101;
-			via = 0b0111;
-			vib = 0b1101;
+			vertexIndex = 0x5;// 0b0101;
+			via = 0x7; //0b0111;
+			vib = 0xD; //0b1101;
 		}
 		else{
 			asi = xsi;
 			bsi = zsi;
-			vertexIndex = 0b1010;
-			via = 0b1011;
-			vib = 0b1110;
+			vertexIndex = 0xA; //0b1010;
+			via = 0xB; //0b1011;
+			vib = 0xE; //0b1110;
 		}
 	}
 	else{
 		if (abba > 0){
 			asi = ysi;
 			bsi = zsi;
-			vertexIndex = 0b1001;
-			via = 0b1011;
-			vib = 0b1101;
+			vertexIndex = 0x9; //0b1001;
+			via = 0xB; //0b1011;
+			vib = 0xD; //0b1101;
 		}
 		else{
 			asi = xsi;
 			bsi = wsi;
-			vertexIndex = 0b0110;
-			via = 0b0111;
-			vib = 0b1110;
+			vertexIndex = 0x6; // 0b0110;
+			via = 0x7; //0b0111;
+			vib = 0xE; //0b1110;
 		}
 	}
 	if (bsi > asi){
@@ -703,7 +703,7 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 	if (siSum + asi > 3){
 		vertexIndex = via;
 		if (siSum + bsi > 4){
-			vertexIndex = 0b1111;
+			vertexIndex = 0xF; //0b1111;
 		}
 	}
 
@@ -713,7 +713,7 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 		ysi = 1 - ysi;
 		zsi = 1 - zsi;
 		wsi = 1 - wsi;
-		vertexIndex ^= 0b1111;
+		vertexIndex ^= 0xF; //0b1111;
 	}
 
 	// Five points to add, total, from five copies of the A4 lattice.
@@ -752,18 +752,18 @@ double _noise4_Base(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double xs, d
 
 		// Next point is the closest vertex on the 4-simplex whose base vertex is the aforementioned vertex.
 		double score0 = 1.0 + ssi * (-1.0 / 0.309016994374947); // Seems slightly faster than 1.0-xsi-ysi-zsi-wsi
-		vertexIndex = 0b0000;
+		vertexIndex = 0x0; //0b0000;
 		if (xsi >= ysi && xsi >= zsi && xsi >= wsi && xsi >= score0){
-			vertexIndex = 0b0001;
+			vertexIndex = 0x1; //0b0001;
 		}
 		else if (ysi > xsi && ysi >= zsi && ysi >= wsi && ysi >= score0){
-			vertexIndex = 0b0010;
+			vertexIndex = 0x2; //0b0010;
 		}
 		else if (zsi > xsi && zsi > ysi && zsi >= wsi && zsi >= score0){
-			vertexIndex = 0b0100;
+			vertexIndex = 0x4; //0b0100;
 		}
 		else if (wsi > xsi && wsi > ysi && wsi > zsi && wsi >= score0){
-			vertexIndex = 0b1000;
+			vertexIndex = 0x8; //0b1000;
 		}
 	}
 
@@ -824,7 +824,7 @@ double noise4_XYZBeforeW(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double 
 	return _noise4_Base(ose, osg, xs, ys, zs, ws);
 }
 
-OpenSimplexEnv *initOpenSimplex(){
+OpenSimplexEnv *initOpenSimplex(void){
 	OpenSimplexEnv *ose = (OpenSimplexEnv *) malloc(sizeof(OpenSimplexEnv));
 	ose->GRADIENTS_2D = _newGrad2ConstArray();
 	ose->GRADIENTS_3D = _newGrad3ConstArray();

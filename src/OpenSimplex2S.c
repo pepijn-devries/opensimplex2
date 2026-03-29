@@ -48,7 +48,7 @@ LatticePoint4D *_newSLatticePoint4D(int xsv, int ysv, int zsv, int wsv)
 	return plp4D;
 }
 
-LatticePoint2D **_newSLatticePoint2DConstArray()
+LatticePoint2D **_newSLatticePoint2DConstArray(void)
 {
 	LatticePoint2D **plp2DArr = (LatticePoint2D **)malloc(sizeof(LatticePoint2D *) * 8 * 4);
 	for (int i = 0; i < 8; i++)
@@ -108,7 +108,7 @@ LatticePoint2D **_newSLatticePoint2DConstArray()
 	return plp2DArr;
 }
 
-LatticePoint3D **_newSLatticePoint3DConstArray()
+LatticePoint3D **_newSLatticePoint3DConstArray(void)
 {
 	LatticePoint3D **plp3DArr = (LatticePoint3D **)malloc(sizeof(LatticePoint3D *) * 8);
 	for (int i = 0; i < 8; i++)
@@ -992,7 +992,7 @@ vect *_newSLatticePoint4DConstArray(LatticePoint4D **latticePoints)
   return plp4DArr;
 }
 
-Grad2 *_newSGrad2ConstArray()
+Grad2 *_newSGrad2ConstArray(void)
 {
 	Grad2 *arr = (Grad2 *)malloc(sizeof(Grad2) * 24);
 	int i = 0;
@@ -1034,7 +1034,7 @@ Grad2 *_newSGrad2ConstArray()
 	return gradients2D;
 }
 
-Grad3 *_newSGrad3ConstArray()
+Grad3 *_newSGrad3ConstArray(void)
 {
 	Grad3 *arr = (Grad3 *)malloc(sizeof(Grad3) * 48);
 	int i = 0;
@@ -1101,7 +1101,7 @@ Grad3 *_newSGrad3ConstArray()
 	return gradients3D;
 }
 
-Grad4 *_newSGrad4ConstArray()
+Grad4 *_newSGrad4ConstArray(void)
 {
 	Grad4 *arr = (Grad4 *)malloc(sizeof(Grad4) * 160);
 	int i = 0;
@@ -1565,7 +1565,7 @@ double noiseS4_XYZBeforeW(OpenSimplexEnv *ose, OpenSimplexGradients *osg, double
 	return _noiseS4_Base(ose, osg, xs, ys, zs, ws);
 }
 
-OpenSimplexEnv *initOpenSimplexS()
+OpenSimplexEnv *initOpenSimplexS(void)
 {
   LatticePoint4D **latticePoints = (LatticePoint4D **)malloc(sizeof(LatticePoint4D *) * 256);
   
