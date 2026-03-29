@@ -1,6 +1,12 @@
 # Changelog
 
+## opensimplex2 V0.0.3.0001
+
+- Corrected README
+
 ## opensimplex2 V0.0.3
+
+CRAN release: 2026-03-29
 
 - Fixed undefined behaviour
 - Fixed CRAN warnings
