@@ -1,3 +1,7 @@
+# opensimplex2 V0.0.3.0001
+
+* Corrected README
+
 # opensimplex2 V0.0.3
 
 * Fixed undefined behaviour
