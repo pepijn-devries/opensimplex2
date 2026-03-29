@@ -123,9 +123,14 @@ There you have it. This looks like a nice fire. Of course there are many
 improvements possible. You could combine different scales in different
 noise spaces to give it a more dynamic feel. You could also make the
 path along which the noise is sampled more fickly. But I’ll leave that
-up to you to experiment with that.
+up to you, to experiment with that.
 
 ## Seamless Animation
+
+The animation shown above has 100 frames as specified at the start. Once
+the last frame is reached it will jump back to the first frame. As the
+first and the last frame have a completely different state, you will see
+that the transition is not so smooth.
 
 You can use OpenSimplex2 noise to create seamless animations. The trick
 is that you have to sample your noise space at coordinates that are the
@@ -171,4 +176,16 @@ Seamless
 
 ## Sources of Inspiration
 
-TODO
+For more inspiration of what you can achieve with OpenSimplex2 noise,
+I’ve put together a list of resources.
+
+- [Wikipedia: Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise):
+  Although focused on Perlin noise, OpenSimplex2 can be used as an
+  alternative for most applications listed there.
+- [State of the Art in Procedural Noise
+  Functions](https://www.researchgate.net/publication/216813586_State_of_the_Art_in_Procedural_Noise_Functions):
+  A nice research article describing applications of noise functions in
+  general
+- [SimplexNoise
+  Demystified](https://itn-web.it.liu.se/~stegu76/TNM084-2011/simplexnoise-demystified.pdf):
+  A more technical document describing how Simplex noise works.

@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">opensimplex2</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.0002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2.0003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +131,7 @@ look like fire yet.</p>
 <span>        zlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">fire_pal</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="float">
-<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles-.gif" alt="Hot bubbles"><div class="figcaption">Hot bubbles</div>
+<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/hot-bubbles-.gif" data-external="1" alt="Hot bubbles"><div class="figcaption">Hot bubbles</div>
 </div>
 </div>
 <div class="section level2">
@@ -153,7 +153,7 @@ the top of the plot.</p>
 <span>        zlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">fire_pal</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="float">
-<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient-.gif" alt="Heat gradient"><div class="figcaption">Heat gradient</div>
+<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/heat-gradient-.gif" data-external="1" alt="Heat gradient"><div class="figcaption">Heat gradient</div>
 </div>
 </div>
 <div class="section level2">
@@ -175,17 +175,21 @@ frame with <code>-speed2*i</code>.</p>
 <span>        zlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">fire_pal</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="float">
-<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames-.gif" alt="Flames"><div class="figcaption">Flames</div>
+<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/flames-.gif" data-external="1" alt="Flames"><div class="figcaption">Flames</div>
 </div>
 <p>There you have it. This looks like a nice fire. Of course there are
 many improvements possible. You could combine different scales in
 different noise spaces to give it a more dynamic feel. You could also
 make the path along which the noise is sampled more fickly. But I’ll
-leave that up to you to experiment with that.</p>
+leave that up to you, to experiment with that.</p>
 </div>
 <div class="section level2">
 <h2 id="seamless-animation">Seamless Animation<a class="anchor" aria-label="anchor" href="#seamless-animation"></a>
 </h2>
+<p>The animation shown above has 100 frames as specified at the start.
+Once the last frame is reached it will jump back to the first frame. As
+the first and the last frame have a completely different state, you will
+see that the transition is not so smooth.</p>
 <p>You can use OpenSimplex2 noise to create seamless animations. The
 trick is that you have to sample your noise space at coordinates that
 are the same at the end as at the start. So if you sample the space
@@ -220,13 +224,28 @@ demonstrated in the example below.</p>
 <span>        zlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu">fire_pal</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <div class="float">
-<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless-.gif" alt="Seamless"><div class="figcaption">Seamless</div>
+<img src="https://raw.github.com/pepijn-devries/opensimplex2/main/pkgdown/vignette/seamless-.gif" data-external="1" alt="Seamless"><div class="figcaption">Seamless</div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="sources-of-inspiration">Sources of Inspiration<a class="anchor" aria-label="anchor" href="#sources-of-inspiration"></a>
 </h2>
-<p>TODO</p>
+<p>For more inspiration of what you can achieve with OpenSimplex2 noise,
+I’ve put together a list of resources.</p>
+<ul>
+<li>
+<a href="https://en.wikipedia.org/wiki/Perlin_noise" class="external-link">Wikipedia:
+Perlin noise</a>: Although focused on Perlin noise, OpenSimplex2 can be
+used as an alternative for most applications listed there.</li>
+<li>
+<a href="https://www.researchgate.net/publication/216813586_State_of_the_Art_in_Procedural_Noise_Functions" class="external-link">State
+of the Art in Procedural Noise Functions</a>: A nice research article
+describing applications of noise functions in general</li>
+<li>
+<a href="https://itn-web.it.liu.se/~stegu76/TNM084-2011/simplexnoise-demystified.pdf" class="external-link">SimplexNoise
+Demystified</a>: A more technical document describing how Simplex noise
+works.</li>
+</ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
